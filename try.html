@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pause YouTube Video at Specific Time</title>
+</head>
+<body>
+  <!-- Replace video ID and time in the URL below -->
+<iframe id="ytplayer" type="text/html" width="640" height="360"
+    src="https://www.youtube.com/embed/Q4O6yxUC_8g?enablejsapi=1"
+    frameborder="0" autoplay = true allowfullscreen>
+</iframe> 
+
+  <div id="player"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // Pause video at specific time
+    function pauseVideoAtSpecificTime() {
+      var player = document.getElementById("ytplayer");
+      player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      Swal.fire({
+        title: 'Wait a minute! The following scene may contain harmful material',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Skip',
+        denyButtonText: `Keep watching`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        //if (result.isConfirmed) {
+        //  Swal.fire('Saved!', '', 'success')
+        //} else if (result.isDenied) {
+        //  Swal.fire('Changes are not saved', '', 'info')
+        //}
+      })
+    }
+
+    // Call pauseVideoAtSpecificTime() function after a delay (in milliseconds)
+    setTimeout(pauseVideoAtSpecificTime, 2000);
+  </script>
+</body>
+</html>
+
