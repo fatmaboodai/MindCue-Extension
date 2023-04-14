@@ -1,0 +1,43 @@
+<html>
+<head>
+<title> Stop Youtube video using JavaScript. </title>
+</head>
+<style>
+   button {
+      height: 30px;
+      width: 80px;
+      background-color: aqua;
+   }
+</style>
+<body>
+   <h2> Stop YouTube video using JavaScript. </h2>
+   <!-- embedding the YouTube video -->
+   <iframe id="videoId" src="https://www.youtube.com/embed/Q4O6yxUC_8g?enablejsapi=1"> </iframe>
+   <!-- <button onclick = "stop()"> stop </button>
+   <button onclick = "pause()"> pause </button> -->
+
+   <script>
+      // to stop the video
+      function stop() {
+         let video = document.getElementById("videoId")
+         video.contentWindow.postMessage( '{"event":"command", "func":"stopVideo", "args":""}', '*');
+      }
+      // to pause the video
+      function pause() {
+         let video = document.getElementById("videoId")
+         video.contentWindow.postMessage( '{"event":"command", "func":"pauseVideo", "args":""}', '*');
+         Swal.fire({
+  title: 'Trigger warning',
+  text: 'Hi janna bye janna',
+  imageUrl: 'https://www.insidehighered.com/sites/default/server_files/media/titre-icon-vector-id1064145390_0.jpg',
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: 'Custom image',
+})
+      }
+      const myTimeout = setTimeout(pause, 3000);
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+</body>
+</html>
