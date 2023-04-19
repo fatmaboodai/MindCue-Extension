@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
+
+body {
+    background-color: #F9F9F9;
+    width: 284px;
+    height: 812px;
+    align-items: center;
+    border: solid 2px grey;
+    border-radius: 10px;
+    margin: 0;
+}
+#Tab1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    margin-right: 5px;
+    color: #638184;
+}
+
+#Tab2 {
+    width: 122.5px;
+    background: #E5EFF0;
+    border-radius: 10px 10px 0px 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    margin-left: 5px;
+    color: #638184;
+    opacity: 0.5;
+}
+
+#TabDiv {
+    display: flex;
+}
+
+button {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    width: 247px;
+    border: 2px solid #DC989A;
+    border-radius: 10px;
+    color: #DC989A;
+    padding: 10px;
+    background-color: #F9F9F9;
+}

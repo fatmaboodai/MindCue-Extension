@@ -12,6 +12,8 @@ body {
     border-radius: 5px;
     background-color: #F9F9F9;
     align-items: center;
+    width: 284px;
+    height: 812px;
     
   }
 
@@ -21,17 +23,44 @@ body {
     font-size: 12px;
     border: 2px solid #E5EFF0;
     border-radius: 0px 0px 15px 15px;
-    align-items: left;
+    align-items: center;
     padding-left: 20px;
+    padding-top:20px;
+    padding-bottom: 20px;
   }
 
   h2 {
+    color: #638184;
     background: #E5EFF0;
-    width: 222px;
+    width: 224px;
     border-radius: 15px 15px 0px 0px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+  }
+
+  #start {
+    font-family: 'Lexend', sans-serif;
+    background-color: #F9F9F9;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color:#DC989A;
+    padding: 15px;
+    width: 200px;
+    border-radius: 15px;
+    border: solid 2px #DC989A;
+    width: 224px;
+  }
+
+  #logout {
+    color: #DC989A;
+    font-family: Lexend, sans-serif;
+    font-size: 12px;
+    font-weight: 500px;
     text-align: center;
   }
+

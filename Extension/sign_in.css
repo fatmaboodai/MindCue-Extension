@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
         
-        .sign_in_form {
+        #sign_in_form {
             align-items: center;
             color:#638184;
         }
@@ -53,9 +53,11 @@
             font-family: 'Poppins', sans-serif;
             align-items: center;
             text-align: center;
+            width: 284px;
+            height: 812px;
           }
 
-        .form_div {
+        #form_div {
             align-items: center;
         }
 
@@ -74,12 +76,11 @@
             border: 1px solid #638184;
           }
 
-        .sign_in_email {
+        #sign_in_email, #sign_in_password {
             font-family: 'Lexend', sans-serif;
-            font-style: normal;
-            font-weight: 400;
+            font-style: bold;
+            font-weight: 600;
             font-size: 14px;
-            line-height: 18px;
             color: #638184;
           }
 
