@@ -8,21 +8,76 @@
     <title>Select a tab</title>
 </head>
 <body>
+    <div id="Select">
     <div id="TabDiv">
-    <p id="Tab1">Window</p>
-    <p id="Tab2">Screen</p>
+    
     </div> 
+    <div id="border">
 
     <p>Select a tab to monitor:</p>
 
-    <img src="C:\Users\janna\OneDrive\Documents\GitHub\ExtensionPrototype\Extension\images\Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+    <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
     <p>OpenBCI - store...</p>
 
-    <img src="C:\Users\janna\OneDrive\Documents\GitHub\ExtensionPrototype\Extension\images\Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+    <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
     <p>Youtube - I won...</p>
 
-    <img src="C:\Users\janna\OneDrive\Documents\GitHub\ExtensionPrototype\Extension\images\Screenshot 2023-03-22 000950 1.png" alt="Recipe">
+    <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
     <p>Salted Brownie...</p>
-    <button id="Select">Select Tab</button>
+    </div>
+    <button>Select Tab</button>
+
+    <p id="logout">Logout</p>
+
+    <div class="content">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#window">Window</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#screen">Screen</a>
+          </li>
+        </ul>
+
+        <p>Select a tab to monitor:</p>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="window" class="container tab-pane active">
+              <div class="form-group">
+                <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+                <p>OpenBCI - store...</p>
+
+                <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+                <p>Youtube - I won...</p>
+
+                <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
+                <p>Salted Brownie...</p>
+              </div>
+              <button type="submit" class="btn btn-primary">Select Tab</button>
+          </div>
+          <div id="screen" class="container tab-pane fade">
+              <div class="form-group">
+                <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+                <p>OpenBCI - store...</p>
+
+                <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+                <p>Youtube - I won...</p>
+
+                <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
+                <p>Salted Brownie...</p>
+              </div>
+              <button type="submit" class="btn btn-primary">Screen</button>
+          </div>
+        </div>
+
+        <p id="logout">Logout</p>
+
+
+
+
+    </div>
 </body>
 </html>
+
