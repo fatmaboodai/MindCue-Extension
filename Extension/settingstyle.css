@@ -1,35 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
 
-input[type=checkbox], input[type=radio] select {
-    font-family: 'Lexend', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    color: #638184;
-}
 
 body {
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #F9F9F9;
     align-items: center;
     width: 284px;
     height: 812px;
+    text-align: center;
+    border: 1px solid #638184;
+    margin:auto;
     
   }
 
-  form {
+#mainform {
     width: 200px;
     font-family: 'Lexend', sans-serif;
     font-size: 12px;
     border: 2px solid #E5EFF0;
     border-radius: 0px 0px 15px 15px;
     align-items: center;
+    text-align: left;
     padding-left: 20px;
     padding-top:20px;
     padding-bottom: 20px;
+    margin: auto;
   }
 
-  h2 {
+#line {
+  margin-top: 60%;
+}
+
+h2 {
     color: #638184;
     background: #E5EFF0;
     width: 224px;
@@ -39,28 +41,58 @@ body {
     font-weight: 400;
     font-size: 12px;
     text-align: center;
-    margin: 0;
+    align-items: center;
+    margin: auto;
   }
 
-  #start {
+button {
     font-family: 'Lexend', sans-serif;
     background-color: #F9F9F9;
-    font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color:#DC989A;
     padding: 15px;
-    width: 200px;
     border-radius: 15px;
     border: solid 2px #DC989A;
     width: 224px;
+    align-items: center;
+    margin: auto;
   }
 
-  #logout {
+#logout {
     color: #DC989A;
-    font-family: Lexend, sans-serif;
+    font-family: 'Lexend', sans-serif;
     font-size: 12px;
     font-weight: 500px;
     text-align: center;
   }
 
+button:hover {
+    background-color: #DC989A;
+    color: white;
+    border: 2px #F9F9F9 solid;
+  }
+
+button:active {
+    background-color: #DC989A;
+    color: white;
+    border: 2px #F9F9F9 solid;
+ }
+
+#formdiv {
+  align-items: center;
+  width: 284px;
+  text-align: center;
+  margin-top: 30%;
+ }
+
+input:checked {
+  accent-color: #DC989A;
+  background-color: #DC989A;
+ }
+
+ 
+input[type='radio'] {
+  background-color: #DC989A;
+  accent-color: #DC989A ;
+ }

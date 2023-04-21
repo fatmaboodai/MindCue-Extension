@@ -47,7 +47,7 @@
           }
 
         body {
-            border-radius: 5px;
+            border-radius: 10px;
             background-color: #F5F5F5;
             padding: 20px;
             font-family: 'Poppins', sans-serif;
@@ -55,7 +55,13 @@
             text-align: center;
             width: 284px;
             height: 812px;
+            border: 1px solid #638184;
+            margin: auto;
           }
+
+        #main {
+          margin-top: 90%;
+        }
 
         #form_div {
             align-items: center;
@@ -95,3 +101,15 @@
             padding: 10px;
             color: #638184;
           }
+
+          button:hover {
+            background-color: #DC989A;
+            color: white;
+            border: 2px #F9F9F9 solid;
+          }
+        
+        button:active {
+            background-color: #DC989A;
+            color: white;
+            border: 2px #F9F9F9 solid;
+         }

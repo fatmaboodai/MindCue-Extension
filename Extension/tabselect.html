@@ -1,83 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type= "text/css" href="tabs.css">
-    <title>Select a tab</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="tabs.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div id="Select">
-    <div id="TabDiv">
+
+
+<div id="maindiv">
+  <hr>
+  <ul class="nav nav-tabs nav-justified">
+    <li class="active"><a data-toggle="tab" href="#window">Window</a></li>
+    <li><a data-toggle="tab" href="#screen">Screen</a></li>
+  </ul>
+  <br>
+  <p>Select a tab to monitor:</p>
+  <div class="tab-content">
+    <div id="window" class="tab-pane fade in active">
+      <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+            <p>OpenBCI - store...</p>
+
+            <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+            <p>Youtube - I won...</p>
+
+            <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
+            <p>Salted Brownie...</p>
+    </div>
+    <div id="screen" class="tab-pane fade">
+      <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+           <p>OpenBCI - store...</p>
+
+           <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+           <p>Youtube - I won...</p>
+    </div>
     
-    </div> 
-    <div id="border">
+    <button type="submit">Select Tab</button>
 
-    <p>Select a tab to monitor:</p>
+  </div>
+</div>
 
-    <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
-    <p>OpenBCI - store...</p>
-
-    <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
-    <p>Youtube - I won...</p>
-
-    <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
-    <p>Salted Brownie...</p>
-    </div>
-    <button>Select Tab</button>
-
-    <p id="logout">Logout</p>
-
-    <div class="content">
-        <!-- Nav pills -->
-        <ul class="nav nav-pills" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#window">Window</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" href="#screen">Screen</a>
-          </li>
-        </ul>
-
-        <p>Select a tab to monitor:</p>
-        
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div id="window" class="container tab-pane active">
-              <div class="form-group">
-                <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
-                <p>OpenBCI - store...</p>
-
-                <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
-                <p>Youtube - I won...</p>
-
-                <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
-                <p>Salted Brownie...</p>
-              </div>
-              <button type="submit" class="btn btn-primary">Select Tab</button>
-          </div>
-          <div id="screen" class="container tab-pane fade">
-              <div class="form-group">
-                <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
-                <p>OpenBCI - store...</p>
-
-                <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
-                <p>Youtube - I won...</p>
-
-                <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
-                <p>Salted Brownie...</p>
-              </div>
-              <button type="submit" class="btn btn-primary">Screen</button>
-          </div>
-        </div>
-
-        <p id="logout">Logout</p>
-
-
-
-
-    </div>
+<p id="logout">Logout</p>
 </body>
 </html>
+
+
+
 
