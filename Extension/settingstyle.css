@@ -22,8 +22,8 @@ body {
     align-items: center;
     text-align: left;
     padding-left: 20px;
-    padding-top:20px;
-    padding-bottom: 20px;
+    padding-top:30px;
+    padding-bottom: 30px;
     margin: auto;
   }
 
@@ -43,12 +43,14 @@ h2 {
     text-align: center;
     align-items: center;
     margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
-button {
+#start {
     font-family: 'Lexend', sans-serif;
     background-color: #F9F9F9;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     color:#DC989A;
     padding: 15px;
@@ -57,6 +59,9 @@ button {
     width: 224px;
     align-items: center;
     margin: auto;
+    text-decoration: none;
+    padding-left: 90px;
+    padding-right: 90px;
   }
 
 #logout {
@@ -65,18 +70,25 @@ button {
     font-size: 12px;
     font-weight: 500px;
     text-align: center;
+    text-decoration: none;
   }
 
-button:hover {
+#logout:active, #logout:focus, #logout:hover{
+    text-decoration: none;
+  }
+
+#start:hover {
     background-color: #DC989A;
     color: white;
     border: 2px #F9F9F9 solid;
+    text-decoration: none;
   }
 
-button:active {
+#start:active {
     background-color: #DC989A;
     color: white;
     border: 2px #F9F9F9 solid;
+    text-decoration: none;
  }
 
 #formdiv {
@@ -96,3 +108,11 @@ input[type='radio'] {
   background-color: #DC989A;
   accent-color: #DC989A ;
  }
+
+ .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}

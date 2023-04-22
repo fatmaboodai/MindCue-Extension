@@ -17,7 +17,7 @@ body {
 }
 
 #maindiv {
-  margin-top: 60%;
+  
   align-items: center;
   text-align: center;
 }
@@ -34,6 +34,12 @@ hr {
     font-weight: 600;
     font-size: 12px;
 }
+
+#logout:active, #logout:focus, #logout:hover{
+  text-decoration: none;
+}
+
+
 
 a {
     color: #638184;
@@ -70,7 +76,7 @@ a {
     align-items: center;
     font-family: 'Lexend', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     width: 185px;
     border: 2px solid #DC989A;
@@ -91,4 +97,12 @@ a {
     color: #F9F9F9;
     border: 2px #F9F9F9 solid;
  }
+
+ .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
  
