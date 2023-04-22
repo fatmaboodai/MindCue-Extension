@@ -1,0 +1,11 @@
+{
+    "name": "MindCue Extension",
+    "version": "1.0.0",
+    "description": "This extension is a prototype for a system that helps filter out people's triggers online",
+    "manifest_version": 3,
+    "author": "Novas",
+    "action": {
+        "default_popup": "main.html",
+        "default_title": "MindCue Extension"
+    }
+}

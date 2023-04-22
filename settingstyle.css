@@ -6,9 +6,8 @@ body {
     background-color: #F9F9F9;
     align-items: center;
     width: 284px;
-    height: 812px;
+    height: 550px;
     text-align: center;
-    border: 1px solid #638184;
     margin:auto;
     
   }
@@ -95,7 +94,7 @@ h2 {
   align-items: center;
   width: 284px;
   text-align: center;
-  margin-top: 30%;
+  margin-top: 10px;
  }
 
 input:checked {

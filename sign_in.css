@@ -49,22 +49,20 @@ input[type=submit] {
 body {
   border-radius: 10px;
   background-color: #F5F5F5;
-  padding: 20px;
   font-family: 'Poppins', sans-serif;
   align-items: center;
   text-align: center;
   width: 284px;
-  height: 812px;
-  border: 1px solid #638184;
+  height: 400px;
   margin: auto;
   background-image: url('images/Ellipse2.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size:20%;
+  background-size:100%;
 }
 
 #main {
-  margin-top: 90%;
+  margin-top: 55%;
 }
 
 #form_div {

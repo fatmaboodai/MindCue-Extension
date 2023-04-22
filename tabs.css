@@ -3,10 +3,9 @@
 body {
     background-color: #F9F9F9;
     width: 284px;
-    height: 812px;
+    height: 550px;
     align-items: center;
     text-align: center;
-    border: solid 1px grey;
     border-radius: 10px;
     margin: auto;
     font-family: 'Poppins', sans-serif;
@@ -51,7 +50,7 @@ a {
 }
   
   .nav-pills {
-    width: 284px;
+    width: 50%;
   }
   
   .nav-pills .nav-link{
