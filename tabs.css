@@ -16,7 +16,6 @@ body {
 }
 
 #maindiv {
-  
   align-items: center;
   text-align: center;
 }
@@ -24,7 +23,6 @@ body {
 hr {
   border: 1px solid #638184;
 }
-
 
 #logout {
     color: #DC989A;
@@ -37,8 +35,6 @@ hr {
 #logout:active, #logout:focus, #logout:hover{
   text-decoration: none;
 }
-
-
 
 a {
     color: #638184;
@@ -66,7 +62,6 @@ a {
     color: #638184;
   }
   .tab-content{
-    
     background: #F9F9F9;
     color: #638184;
     padding: 30px;
