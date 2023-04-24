@@ -34,17 +34,18 @@ function myFunction() {
   }
 
 }
+myalert();
     function myalert() {
         Swal.fire({
         title:'<html> \
         <span class="title-class">Wait a minute!</span> <br> \
-        <span class="title-class2">The following scene may contain harmful material</span>\
+        <span class="title-class2">The following content may contain material you are not comfortable with</span>\
         </html>',
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: '<html><span class="skip-button-text">Skip the scene</span></html>',
         denyButtonText: `<html><span class="skip-button-text">Dismiss</span></html>`,
-        cancelButtonText:'<html><span class="skip-button-text">Mute Audio</span></html>',
+        cancelButtonText:'<html><span class="skip-button-text">Play Audio Only</span></html>',
         confirmButtonClass: 'Skip-Button',
         cancelButtonClass: 'Skip-Button',
         denyButtonClass:'Skip-Button',
@@ -67,6 +68,7 @@ function myFunction() {
           x.play();
       }
         })
+        x.muted=false;
         }
       
 

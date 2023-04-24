@@ -338,17 +338,22 @@ main{
 border-radius: 15px !important;
 font-family: 'Poppins', sans-serif !important;
 font-family: 'Roboto', sans-serif !important;
-border: 2px solid #638184 !important;
 }
 .pop-up-class{
-    width: 547px !important;
-    height: 402px !important;
+  width: 584px;
+  /* height: 440px; */
     left: 18px !important;
     top: 19px !important;
     background-color: #F5F5F5 !important;
-    border-radius: 15px !important;
+    border-radius: 20px !important;
     font-family: 'Poppins', sans-serif !important;
   font-family: 'Roboto', sans-serif !important;
+  background: linear-gradient(#f5f5f5, #cbd6d7 )!important ;
+  /* border-top: 5px solid #63818471 !important;
+  border-right: 5px solid #63818471 !important;
+  border-bottom: 5px solid #63818471 !important;
+  border-left: 5px solid #63818471 !important; */
+
   }
   .title-class{
 width: 421px;
@@ -357,7 +362,7 @@ left: auto;
 font-family: 'Poppins', sans-serif !important;
 font-family: 'Roboto', sans-serif !important;
 font-style: normal;
-font-weight: 600;
+font-weight: 500;
 font-size: 36px;
 line-height: 54px;
 text-align: center;
@@ -374,12 +379,17 @@ color: #DC989A;
     font-family: 'Poppins', sans-serif !important;
     font-family: 'Roboto', sans-serif !important;
     font-style: normal;
-    font-weight: 400;
+    font-weight:300;
     font-size: 25px;
-    line-height: 40px;
+    line-height: 35px;
     text-align: center;
     color: #DC989A;
       }
+
+
+    .swal2-title{
+      padding: 1.5em 1em 0;
+    }
 
 .Skip-Button{
   box-sizing: border-box !important;
@@ -389,7 +399,7 @@ color: #DC989A;
   top: 205px !important;
   border: 2px solid #638184 !important;
   border-radius: 10px !important;
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: rgba(249, 249, 249, 0.5) !important;
 }
 .skip-button-text{
