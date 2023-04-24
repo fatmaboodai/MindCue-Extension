@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -73,5 +73,47 @@ function pauseVideo() {
   player.pauseVideo();
 }
 </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="my-div">
+    <p>This is my div content.</p>
+    <button onclick="toggleBox()">Show black box</button>
+  </div>
+  
+  <style>
+    .my-div {
+      position: relative;
+    }
+    .my-div::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.5;
+      display: none; /* hide the box by default */
+    }
+    .show-box::before {
+      display: block; /* show the box when this class is applied */
+    }
+  </style>
+  
+  <script>
+    function toggleBox() {
+      var myDiv = document.querySelector('.my-div');
+      myDiv.classList.toggle('show-box');
+    }
+  </script>
 </body>
 </html>

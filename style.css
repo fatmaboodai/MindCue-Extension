@@ -421,3 +421,19 @@ color: #638184  !important;
   display: flex;
   flex-direction: column;
 }
+.myVideo{
+  position: relative;
+}
+.myVideo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width : 960px;
+  height:515px;
+  background-color: black;
+  display: none; /* hide the box by default */
+}
+.show-box::before {
+  display: block; /* show the box when this class is applied */
+}

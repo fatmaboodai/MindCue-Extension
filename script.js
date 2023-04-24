@@ -2,9 +2,7 @@
     
 // Get the video element with id="myVideo"
 var x = document.getElementById("myVideo");
-function enableMute(){ 
-  x.muted = true;
-} 
+var myDiv = document.querySelector('.myVideo');
 // Attach a timeupdate event to the video element, and execute a function if the current playback position has changed
 x.addEventListener("timeupdate", myFunction);
 var hasAlertedAt5 = false;
@@ -21,9 +19,8 @@ function myFunction() {
     hasAlertedAt5 = true;
   }
 
-  if (x.currentTime >= 45 && !hasAlertedAt10) {
-    x.pause()
-    myalert();
+  if (x.currentTime >= 10 && !hasAlertedAt10) {
+    myDiv.classList.toggle('myVideo')
     hasAlertedAt10 = true;
   }
 
@@ -34,7 +31,6 @@ function myFunction() {
   }
 
 }
-myalert();
     function myalert() {
         Swal.fire({
         title:'<html> \
@@ -64,11 +60,11 @@ myalert();
             x.play();
         }
         else if (result.isDismissed) {
-          x.muted=true;
+          myDiv.classList.toggle('show-box');
           x.play();
       }
         })
-        x.muted=false;
+        
         }
       
 
