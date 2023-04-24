@@ -13,35 +13,39 @@ function myFunction() {
   // Display the current position of the video in a p element with id="demo"
   document.getElementById("demo").innerHTML = x.currentTime;
 
-//   if (x.currentTime >= 5 && !hasAlertedAt5) {
-//     myalert();
-//     hasAlertedAt5 = true;
-//   }
+  if (x.currentTime >= 5 && !hasAlertedAt5) {
+    myalert();
+    hasAlertedAt5 = true;
+  }
 
-//   if (x.currentTime >= 10 && !hasAlertedAt10) {
-//     myalert();
-//     hasAlertedAt10 = true;
-//   }
+  if (x.currentTime >= 10 && !hasAlertedAt10) {
+    myalert();
+    hasAlertedAt10 = true;
+  }
 
-//   if (x.currentTime >= 80 && !hasAlertedAt15) {
-//     myalert();
-//     hasAlertedAt15 = true;
-//   }
-// }
+  if (x.currentTime >= 80 && !hasAlertedAt15) {
+    myalert();
+    hasAlertedAt15 = true;
+  }
+
 }
-  myalert()
-
+myalert();
     function myalert() {
         Swal.fire({
-        title: 'Wait a minute! The following scene may contain harmful material',
+        title:'<html> \
+        <span class="title-class">Wait a minute!</span> <br> \
+        <span class="title-class2">The following scene may contain harmful material</span>\
+        </html>',
         showDenyButton: true,
         showCancelButton: false,
-        confirmButtonText: 'Skip',
-        denyButtonText: `Keep watching`,
-        customClass: {
-            popup: 'pop-up-class',
-            title:'title-class',
-          }
+        confirmButtonText: 'Skip the scene',
+        denyButtonText: `Dismiss`,
+        background:'#F5F5F5',
+        showClass:{
+          popup: 'pop-up-class',
+          container: 'container-class',
+        }
+
         }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
@@ -53,3 +57,4 @@ function myFunction() {
         }
         })
         }
+        
