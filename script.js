@@ -1,62 +1,52 @@
 
-let tag = document.createElement('script');
+    
+// Get the video element with id="myVideo"
+var x = document.getElementById("myVideo");
 
-tag.src = "https://www.youtube.com/iframe_api";
-let firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// Attach a timeupdate event to the video element, and execute a function if the current playback position has changed
+x.addEventListener("timeupdate", myFunction);
+var hasAlertedAt5 = false;
+var hasAlertedAt10 = false;
+var hasAlertedAt15 = false;
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-let player;
-function onYouTubeIframeAPIReady() {
-player = new YT.Player('player', {
-videoId: 'Mc4jAiJameA',
-events: {
-'onReady': onPlayerReady,
-'onStateChange': onPlayerStateChange
-}
-});
-}
+function myFunction() {
+  // Display the current position of the video in a p element with id="demo"
+  document.getElementById("demo").innerHTML = x.currentTime;
+  if (x.currentTime >= 5 && !hasAlertedAt5) {
+    myalert();
+    hasAlertedAt5 = true;
+  }
 
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-event.target.playVideo();
-player.mute();
-}
+  if (x.currentTime >= 10 && !hasAlertedAt10) {
+    myalert();
+    hasAlertedAt10 = true;
+  }
 
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-let done = false;
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        setTimeout(pauseVideo, 5000);
-        setTimeout(myalert, 5000)
-        done = true;
-        } }
-
-function myalert() {
-Swal.fire({
-title: 'Wait a minute! The following scene may contain harmful material',
-showDenyButton: true,
-showCancelButton: false,
-confirmButtonText: 'Skip',
-denyButtonText: `Keep watching`,
-}).then((result) => {
-/* Read more about isConfirmed, isDenied below */
-if (result.isConfirmed) {
-    player.seekTo(x);
-    player.playVideo();
-    seekto+=30
-
-} else if (result.isDenied) {
-
-    player.playVideo();
-}
-})
+  if (x.currentTime >= 80 && !hasAlertedAt15) {
+    myalert();
+    hasAlertedAt15 = true;
+  }
 }
 
-function pauseVideo() {
-//player.stopVideo();
-player.pauseVideo();
-}
+    function myalert() {
+        Swal.fire({
+        title: 'Wait a minute! The following scene may contain harmful material',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Skip',
+        denyButtonText: `Keep watching`,
+        customClass: {
+            popup: 'my-custom-class',
+          }
+        }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            x.currentTime+=30;
+            x.play();
+        
+        } else if (result.isDenied) {
+        
+            x.play();
+        }
+        })
+        }

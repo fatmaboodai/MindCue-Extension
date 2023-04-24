@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Pause YouTube Video at Specific Time</title>
-</head>
 <body>
-  <!-- Replace video ID and time in the URL below -->
-<iframe id="ytplayer" type="text/html" width="640" height="360"
-    src="https://www.youtube.com/embed/Q4O6yxUC_8g?enablejsapi=1"
-    frameborder="0" autoplay = true allowfullscreen>
-</iframe> 
+<h1>HTML DOM Events</h1>
+<h2>The ontimeupdate</h2>
 
-  <div id="player"></div>
+<p>Use the addEventListener() method to attach a "timeupdate" event to a video element.</p>
+<p>When the user plays the video, or skips to a new position, a function will display the position (in seconds) of the playback:</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    // Pause video at specific time
-    function pauseVideoAtSpecificTime() {
-      var player = document.getElementById("ytplayer");
-      player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-      Swal.fire({
-        title: 'Wait a minute! The following scene may contain harmful material',
-        showDenyButton: true,
-        showCancelButton: false,
-        confirmButtonText: 'Skip',
-        denyButtonText: `Keep watching`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        //if (result.isConfirmed) {
-        //  Swal.fire('Saved!', '', 'success')
-        //} else if (result.isDenied) {
-        //  Swal.fire('Changes are not saved', '', 'info')
-        //}
-      })
-    }
+<video id="myVideo" controls>
+  <source src="./راشد الماجد - تفنن (جلسات صوت الخليج) 2014.mp4" type="video/mp4">
+  <!-- <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video. -->
+</video>
 
-    // Call pauseVideoAtSpecificTime() function after a delay (in milliseconds)
-    setTimeout(pauseVideoAtSpecificTime, 2000);
-  </script>
+<p>Playback position: <span id="demo"></span></p>
+
+<script>
+// Get the video element with id="myVideo"
+let x = document.getElementById("myVideo");
+
+// Attach a timeupdate event to the video element, and execute a function if the current playback position has changed
+x.addEventListener("timeupdate", myFunction);
+
+function myFunction() {
+  // Display the current position of the video in a p element with id="demo"
+  document.getElementById("demo").innerHTML = x.currentTime;
+  // if (x.currentTime >= 5) {
+  //     alert("Video has reached 5 seconds!");
+  //   }
+
+  }
+
+
+</script>
+
+<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+
 </body>
 </html>
-

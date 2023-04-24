@@ -6,6 +6,7 @@
 body{
     margin: 0;
     margin-top: 5px;
+    margin-right: 0;
     background-color: #f9f9f9;
 }
 .header{
@@ -97,7 +98,7 @@ main{
 .video-content{
     padding-top: 30px;
     max-width: 75%;
-    padding-left: 7%;
+    padding-left: 4%;
   }
   
   /* Video */
@@ -154,8 +155,7 @@ main{
   }
   
   /* Video info and description */
-  #player{
-  
+  #myVideo{
     width : 960px;
     height:515px;
   }
@@ -204,14 +204,17 @@ main{
   }
   .down-section{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    box-sizing:content-box;
+    margin-left:45px;
+
   }
   
   .subscribe-button {
     background-color: rgba(0, 0, 0, 0.93);
     color: white;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 40px 40px 40px 40px;
     font-size: inherit;
     font-size: 10px;
@@ -219,20 +222,20 @@ main{
     border: none;
     outline: none;
     float: right;
-    margin-left: 10px;
+    margin-left: 5px;
   }
   .others-button {
     background-color: #d3d3d389;
     color: black;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 40px 40px 40px 40px;
     font-size: inherit;
-    font-size: 13px;
+    font-size: px;
     font-weight:800;
     border: none;
     outline: none;
     float: right;
-    margin-left: 10px;
+    margin-left: 5px;
 
   }
   .DOT-DOT{
@@ -247,7 +250,7 @@ main{
     outline: none;
     float: right;
     text-align: center;
-    margin-left: 10px;
+    margin-left:5px;
   }
   .thum_up{
     background-color: #d3d3d389;
@@ -281,7 +284,7 @@ main{
   /* Recommended videos */
   
   .recommended-videos {
-    width: 38%;
+    width: 27%;
     float: right;
     margin-left: 10px;
     margin-top: 10px;
@@ -325,4 +328,12 @@ main{
     padding-left: 11px;
     font-size: 18px;
     color: blue;
+  }
+  .my-custom-class{
+    position: relative;
+    width: 584px;
+    height: 440px;
+    
+    background: radial-gradient(100% 169.98% at 96.49% 0%, #CCE1E3 0%, rgba(204, 225, 227, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border-radius: 15px;
   }
