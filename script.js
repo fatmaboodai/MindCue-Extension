@@ -2,7 +2,9 @@
     
 // Get the video element with id="myVideo"
 var x = document.getElementById("myVideo");
-
+function enableMute(){ 
+  x.muted = true;
+} 
 // Attach a timeupdate event to the video element, and execute a function if the current playback position has changed
 x.addEventListener("timeupdate", myFunction);
 var hasAlertedAt5 = false;
@@ -14,22 +16,24 @@ function myFunction() {
   document.getElementById("demo").innerHTML = x.currentTime;
 
   if (x.currentTime >= 5 && !hasAlertedAt5) {
+    x.pause()
     myalert();
     hasAlertedAt5 = true;
   }
 
-  if (x.currentTime >= 10 && !hasAlertedAt10) {
+  if (x.currentTime >= 45 && !hasAlertedAt10) {
+    x.pause()
     myalert();
     hasAlertedAt10 = true;
   }
 
   if (x.currentTime >= 80 && !hasAlertedAt15) {
+    x.pause()
     myalert();
     hasAlertedAt15 = true;
   }
 
 }
-myalert();
     function myalert() {
         Swal.fire({
         title:'<html> \
@@ -37,10 +41,13 @@ myalert();
         <span class="title-class2">The following scene may contain harmful material</span>\
         </html>',
         showDenyButton: true,
-        showCancelButton: false,
-        confirmButtonText: 'Skip the scene',
-        denyButtonText: `Dismiss`,
-        background:'#F5F5F5',
+        showCancelButton: true,
+        confirmButtonText: '<html><span class="skip-button-text">Skip the scene</span></html>',
+        denyButtonText: `<html><span class="skip-button-text">Dismiss</span></html>`,
+        cancelButtonText:'<html><span class="skip-button-text">Mute Audio</span></html>',
+        confirmButtonClass: 'Skip-Button',
+        cancelButtonClass: 'Skip-Button',
+        denyButtonClass:'Skip-Button',
         showClass:{
           popup: 'pop-up-class',
           container: 'container-class',
@@ -55,6 +62,11 @@ myalert();
         } else if (result.isDenied) {
             x.play();
         }
+        else if (result.isDismissed) {
+          x.muted=true;
+          x.play();
+      }
         })
         }
-        
+      
+
