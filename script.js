@@ -12,21 +12,24 @@ var hasAlertedAt15 = false;
 function myFunction() {
   // Display the current position of the video in a p element with id="demo"
   document.getElementById("demo").innerHTML = x.currentTime;
-  if (x.currentTime >= 5 && !hasAlertedAt5) {
-    myalert();
-    hasAlertedAt5 = true;
-  }
 
-  if (x.currentTime >= 10 && !hasAlertedAt10) {
-    myalert();
-    hasAlertedAt10 = true;
-  }
+//   if (x.currentTime >= 5 && !hasAlertedAt5) {
+//     myalert();
+//     hasAlertedAt5 = true;
+//   }
 
-  if (x.currentTime >= 80 && !hasAlertedAt15) {
-    myalert();
-    hasAlertedAt15 = true;
-  }
+//   if (x.currentTime >= 10 && !hasAlertedAt10) {
+//     myalert();
+//     hasAlertedAt10 = true;
+//   }
+
+//   if (x.currentTime >= 80 && !hasAlertedAt15) {
+//     myalert();
+//     hasAlertedAt15 = true;
+//   }
+// }
 }
+  myalert()
 
     function myalert() {
         Swal.fire({
@@ -36,7 +39,8 @@ function myFunction() {
         confirmButtonText: 'Skip',
         denyButtonText: `Keep watching`,
         customClass: {
-            popup: 'my-custom-class',
+            popup: 'pop-up-class',
+            title:'title-class',
           }
         }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
@@ -45,7 +49,6 @@ function myFunction() {
             x.play();
         
         } else if (result.isDenied) {
-        
             x.play();
         }
         })
