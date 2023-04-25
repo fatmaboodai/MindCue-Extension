@@ -19,12 +19,12 @@ function myFunction() {
     hasAlertedAt5 = true;
   }
 
-  if (x.currentTime >= 10 && !hasAlertedAt10) {
-    myDiv.classList.toggle('myVideo')
+  if (x.currentTime >= 40 && !hasAlertedAt10) {
     hasAlertedAt10 = true;
   }
 
   if (x.currentTime >= 80 && !hasAlertedAt15) {
+    myDiv.classList.toggle('myVideo')
     x.pause()
     myalert();
     hasAlertedAt15 = true;
