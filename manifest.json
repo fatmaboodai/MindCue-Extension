@@ -5,7 +5,7 @@
     "manifest_version": 3,
     "author": "Novas",
     "action": {
-        "default_popup": "main.html",
+        "default_popup": "index.html",
         "default_title": "MindCue Extension"
     }
 }

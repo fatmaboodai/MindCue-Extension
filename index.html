@@ -4,192 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindCue Extension</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- My stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    <!-- youtube font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- sweet alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" type= "text/css" href="sign_in.css">
+    <title>Mindcue Extension</title>
 </head>
 <body>
-    <!-- the navbar section -->
-    <header class="header">
-        <!-- the side menu -->
-    <div class="lines-menu">
-        <img src="./images/menu_black_24dp.svg" alt="menu" />
-    </div>
-        <!-- logo  -->
-        <a href="#">
-            <img src="./images/logo.png" alt="youtube-logo" class="youtube-logo"/>
-        </a>
-        <!-- search field -->
-        <form class="searchBar">
-            <input class="searchInput" type="search" placeholder="Search" aria-label="Search"/>
-                <!-- search button -->
-                <button type="submit" class="serach-button">
-                    <img src="./images/search_FILL0_wght400_GRAD0_opsz48.svg" alt="search"/>
-                </button>
-        <div class="mic-icon">
-                <!-- the mic icon -->
-            <a href="#" >
-                <img src="./images/mic_black_24dp.svg" alt="profile"/>
-            </a>
-        </div>
+    <div id="main">
+    <h1>Sign In</h1>
+
+    <div id="form_div"> <!-- div that holds form content-->
+        <form action="", id="sign_in_form">
+            <!--<label for="Email">Email</label>-->
+            <div> <!-- div that holds input fields-->
+            <input type="email" id="sign_in_email" name="email" placeholder="Email">
+            <hr id = line3>
+            <!--<label for="Password">Password</label>-->
+            <input type="password" id="sign_in_password" name="password" placeholder="Password">
+            <hr id = line4>
+            </div>
+            <br>
+            <a href="settings.html" id ="sign_in_button">Sign In</a>
         </form>
-        <div class="Menu-icons">
-            <!-- the video icon -->
-            <a href="#">
-                <img src="./images/video_call_FILL0_wght400_GRAD0_opsz48.svg" alt="Upload video"/>
-            </a>
-            <!-- the notification icon -->
-            <a href="#">
-                <img src="./images/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="notification"/>
-            </a>
-            <!-- the profile icon -->
-            <a href="#">
-                <img src="./images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="profile"/>
-            </a>
-
-
-        </div>
-
-
-    </header>
-    <main>
-        <div class="recommended-videos">
-            <div class="recommended-video-info">
-                    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-                    <span class='recommended-video-title'>Study with me</span><br>
-                    <span class='recommended-video-channel'>relaxingTunes</span><br>
-                    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-        
-            </div>
-            <div class="recommended-video-info">
-                <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-                <span class='recommended-video-title'>Study with me</span><br>
-                <span class='recommended-video-channel'>relaxingTunes</span><br>
-                <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-    
-        </div>
-        <div class="recommended-video-info">
-            <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-            <span class='recommended-video-title'>Study with me</span><br>
-            <span class='recommended-video-channel'>relaxingTunes</span><br>
-            <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
     </div>
-    <div class="recommended-video-info">
-        <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-        <span class='recommended-video-title'>Study with me</span><br>
-        <span class='recommended-video-channel'>relaxingTunes</span><br>
-        <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
 </div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-<div class="recommended-video-info">
-    <img class='recommended-video-thumbnail' src='./images/7d6242af92c520c66afe77d823fb40c5.jpg' alt="a recommended video thumbnail ">
-    <span class='recommended-video-title'>Study with me</span><br>
-    <span class='recommended-video-channel'>relaxingTunes</span><br>
-    <span class='recommended-video-views'>129K views . 1 yaer ago</span>
-
-</div>
-        
-        </div>
-        <!-- my current video -->
-        <div class="video-content">
-            <div class="video-info">
-                <div class="myVideo">
-                    <video id="myVideo" type="text/html" controls width="760" height="515"
-                    src="./راشد الماجد - تفنن (جلسات صوت الخليج) 2014.mp4"
-            allowfullscreen  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </video>
-                </div>
-              
-                <p>Playback position: <span id="demo"></span></p>
-                  
-                <div class="video-title">Machine Learning - The Nature of Probability and Statistics - Observational and Experimental Studies</div>
-                <div class="number-of-views">
-                    <span>123,123,000 views </span>
-                </div>
-            </div>
-            <div class="down-section">
-
-                <div class='user-info'>
-      
-                    <img class='user-pic' src="./images/account_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="user profile picture">
-                    <div class='user-name'>
-                        <div>Fatma Boodai</div>
-                        <div class='num-subscribers'> 48.5K subscribers</div>    
-                    </div>     
-                    <br>
-                    <button class="subscribe-button">SUBSCRIBE</button>
-                  
-            </div>
-            <div class="like-and-dislike-section">
-                <div class="likeDislike">
-                    <button type="submit" class="thum_up">
-                        <img src="./images/icons8-thumbs-up-32.png" alt="thum_up"/>
-                    </button>
-                    <button type="submit" class="thum-down">
-                        <img src="./images/icons8-thumbs-down-32.png" alt="thum-down"/>
-                    </button>
-                    <button class="others-button " >SHARE</button>
-                    <button class="others-button " >DOWNLOAD</button>
-                    <button class="DOT-DOT">...</button>
-                </div>
-            </div>
-            </div>
-            <!-- <div class='video-description'>Here it goes a compillation of nature songs to make you relax and
-                enjoy your free time.</div>
-            <div class='description-show-more'>SHOW MORE</div> -->
-  
-    
-    
-        
-    </main>
- 
-
-</div>
-<script src="./script.js"></script>
-
-
 </body>
 </html>
