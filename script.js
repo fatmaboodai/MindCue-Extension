@@ -19,7 +19,8 @@ function myFunction() {
     hasAlertedAt5 = true;
   }
 
-  if (x.currentTime >= 40 && !hasAlertedAt10) {
+  if (x.currentTime >= 10 && !hasAlertedAt10) {
+    myDiv.classList.toggle('myVideo')
     hasAlertedAt10 = true;
   }
 
