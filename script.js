@@ -6,8 +6,13 @@ var myDiv = document.querySelector('.myVideo');
 // Attach a timeupdate event to the video element, and execute a function if the current playback position has changed
 x.addEventListener("timeupdate", myFunction);
 var hasAlertedAt5 = false;
-var hasAlertedAt10 = false;
-var hasAlertedAt15 = false;
+var hasAlertedAt40 = false;
+var hasAlertedAt50 = false;
+var hasAlertedAt48 = false;
+var hasAlertedAt70 = false;
+var hasAlertedAt66 = false;
+
+
 
 function myFunction() {
   // Display the current position of the video in a p element with id="demo"
@@ -19,17 +24,34 @@ function myFunction() {
     hasAlertedAt5 = true;
   }
 
-  if (x.currentTime >= 10 && !hasAlertedAt10) {
-    myDiv.classList.toggle('myVideo')
-    hasAlertedAt10 = true;
-  }
-
-  if (x.currentTime >= 80 && !hasAlertedAt15) {
-    myDiv.classList.toggle('myVideo')
+  if (x.currentTime >= 40 && !hasAlertedAt40) {
     x.pause()
     myalert();
-    hasAlertedAt15 = true;
+    hasAlertedAt40 = true;
   }
+
+  if (x.currentTime >= 45 && !hasAlertedAt50) {
+    myDiv.classList.toggle('myVideo')
+    hasAlertedAt50=true;
+
+  }
+  if (x.currentTime >= 48 && !hasAlertedAt48) {
+    x.pause()
+    myalert();
+    hasAlertedAt48 = true;
+  }
+  ///// hardware 
+  if (x.currentTime >= 55 && !hasAlertedAt70) {
+    x.pause()
+    myalert1();
+    hasAlertedAt70 = true;
+  }
+    ///// hardware 
+    if (x.currentTime >= 60 && !hasAlertedAt66) {
+      x.pause()
+      myalert2();
+      hasAlertedAt66 = true;
+    }
 
 }
     function myalert() {
@@ -68,4 +90,66 @@ function myFunction() {
         
         }
       
-
+        function myalert1() {
+          Swal.fire({
+          title:'<html> \
+          <span class="title-class">Hmm... </span> <br> \
+          <span class="title-class2">Are you comfortable with what you are currently browsing?</span>\
+          </html>',
+          showDenyButton: true,
+          confirmButtonText: `<html><span class="skip-button-text">I'm good!</span></html>`,
+          denyButtonText: `<html><span class="skip-button-text">I don't want to see this</span></html>`,
+          confirmButtonClass: 'Skip-Button',
+          denyButtonClass:'Skip-Button',
+          showClass:{
+            popup: 'pop-up-class',
+            container: 'container-class',
+          }
+  
+          }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            x.play();
+          } else if (result.isDenied) {
+              x.currentTime+=30;
+              x.play();
+          }
+  }
+      )
+          
+          }
+        
+  
+          function myalert2() {
+            Swal.fire({
+            title:'<html> \
+            <span class="title-class">Oops!</span> <br> \
+            <span class="title-class2">Looks like you exceeded your screen time limit. Edit this through your app settings or take a break</span>\
+            </html>',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: '<html><span class="skip-button-text">Continue</span></html>',
+            denyButtonText: `<html><span class="skip-button-text"</span>Take a break </html>`,
+            cancelButtonText:'<html><span class="skip-button-text">Close browser</span></html>',
+            confirmButtonClass: 'Skip-Button',
+            cancelButtonClass: 'Skip-Button',
+            denyButtonClass:'Skip-Button',
+            showClass:{
+              popup: 'pop-up-class',
+              container: 'container-class',
+            }
+    
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                x.play();
+            
+            } else if (result.isDenied) {
+                x.pause();
+            }
+            else if (result.isDismissed) {
+              x.pause();
+          }
+            })
+            
+            }
