@@ -15,7 +15,7 @@
   <img src="images/Screenshot 2023-04-22 225844.png" alt="Header">
 </div>
 <div id="maindiv">
-  <ul class="nav nav-tabs nav-justified">
+  <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#window">Window</a></li>
     <li><a data-toggle="tab" href="#screen">Screen</a></li>
   </ul>
@@ -23,20 +23,30 @@
   <p>Select a tab to monitor:</p>
   <div class="tab-content">
     <div id="window" class="tab-pane fade in active">
-      <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+      <input type="checkbox" id="click">
+            <label class= "selectedwindow" for="click">
+            <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI"></a>
             <p>OpenBCI - store...</p>
-
+            </label>
+            
+            <input type="checkbox" id="click1">
+            <label class= "selectedwindow" for="click1">
             <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
             <p>Youtube - I won...</p>
-
-            <img src="images/Screenshot 2023-03-22 000950 1.png" alt="Recipe">
-            <p>Salted Brownie...</p>
+            </label>
     </div>
     <div id="screen" class="tab-pane fade">
+      <input type="checkbox" id="click2">
+      <label class= "selectedwindow" for="click2">
       <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
            <p>OpenBCI - store...</p>
-           <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+      </label>
+      <input type="checkbox" id="click3">
+      <label class= "selectedwindow" for="click3">
+      <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
            <p>Youtube - I won...</p>
+      </label>
+
     </div>
     
     <button type="submit" onclick="window.location.href = 'Youtube.html';">Select Tab</button>

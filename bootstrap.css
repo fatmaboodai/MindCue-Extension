@@ -3919,7 +3919,7 @@ textarea.form-control-lg {
 
 .nav-fill .nav-item .nav-link,
 .nav-justified .nav-item .nav-link {
-  width: 50%;
+  width: 100%;
 }
 
 .tab-content > .tab-pane {
