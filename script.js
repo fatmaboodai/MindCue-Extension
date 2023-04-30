@@ -24,7 +24,7 @@ var hasAlertedAt12=false;
 function myFunction() {
   // Display the current position of the video in a p element with id="demo"
   document.getElementById("demo").innerHTML = x.currentTime;
-  if (x.currentTime >= 5 &&  x.currentTime <= 10 && !hasAlertedAt5) {
+  if (x.currentTime >= 3 &&  x.currentTime <= 5 && !hasAlertedAt5) {
     x.pause()
     myalert();
     hasAlertedAt5 = true;
@@ -55,13 +55,13 @@ function myFunction() {
   //     hasAlertedAt13 = true;
   //   }
   // }
-  if(x.currentTime >= 14 &&  x.currentTime <= 15 && !hasAlertedAt13){
-    x.pause()
-    myalertSkip3(); //+27
-    hasAlertedAt13=true;
-  }
+  // if(x.currentTime >= 14 &&  x.currentTime <= 15 && !hasAlertedAt13){
+  //   x.pause()
+  //   myalertSkip3(); //+27
+  //   hasAlertedAt13=true;
+  // }
 
-  if(x.currentTime >= 17 && x.currentTime <= 20 &&!hasAlertedAt15){
+  if(x.currentTime >= 15 && x.currentTime <= 20 &&!hasAlertedAt15){
     x.pause()
     myalertSkip2(); //+30
     hasAlertedAt15 = true;
@@ -289,7 +289,7 @@ function myalertSkip2(){
     }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-        x.currentTime+=30;
+        x.currentTime+=32;
         x.play();
     
     } else if (result.isDenied) {
