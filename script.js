@@ -1,5 +1,3 @@
-
-    
 // Get the video element with id="myVideo"
 var x = document.getElementById("myVideo");
 var myDiv = document.querySelector('.myVideo');
