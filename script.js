@@ -18,11 +18,10 @@ var hasAlertedAt60 =false;
 var hasAlertedAt12=false;
 
 
-
 function myFunction() {
   // Display the current position of the video in a p element with id="demo"
   document.getElementById("demo").innerHTML = x.currentTime;
-  if (x.currentTime >= 3 &&  x.currentTime <= 5 && !hasAlertedAt5) {
+  if (x.currentTime >= 5 &&  x.currentTime <= 8 && !hasAlertedAt5) {
     x.pause()
     myalert();
     hasAlertedAt5 = true;
@@ -42,7 +41,7 @@ function myFunction() {
     hasAlertedAt10 = true;
   }
 
-  if(x.currentTime >= 12 &&  x.currentTime <= 13 && !hasAlertedAt12 && myDiv.classList.contains('show-box')){
+  if(x.currentTime >= 13 &&  x.currentTime <= 15 && !hasAlertedAt12 && myDiv.classList.contains('show-box')){
     document.getElementById('myVideo').className = 'myVideo'
     hasAlertedAt12 = true;
   }
