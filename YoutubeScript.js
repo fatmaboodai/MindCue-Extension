@@ -1,5 +1,3 @@
-
-    
 // Get the video element with id="myVideo"
 var x = document.getElementById("myVideo");
 var myDiv = document.querySelector('.myVideo');
@@ -38,29 +36,61 @@ function myFunction() {
   }
 
   if(x.currentTime >= 10 &&  x.currentTime <= 12 && !hasAlertedAt10 && !myDiv.classList.contains('show-box')){
+    // myDiv.classList.toggle('myVideo')
     x.pause()
-    myalertSkip3(); //+29
+    myalertSkip(); //+32
     hasAlertedAt10 = true;
   }
 
-
-  if(x.currentTime >= 13 &&  x.currentTime <= 14 && !hasAlertedAt12 && myDiv.classList.contains('show-box')){
+  if(x.currentTime >= 12 &&  x.currentTime <= 13 && !hasAlertedAt12 && myDiv.classList.contains('show-box')){
     document.getElementById('myVideo').className = 'myVideo'
     hasAlertedAt12 = true;
   }
 
+  // if(x.currentTime >= 13 &&  x.currentTime <= 14 && !hasAlertedAt13){
+  //   if (myDiv.classList.contains('show-box')) {
+  //     document.getElementById('myVideo').className = 'myVideo'
+  //     hasAlertedAt13 = true;
+  //   }
+  // }
+  // if(x.currentTime >= 14 &&  x.currentTime <= 15 && !hasAlertedAt13){
+  //   x.pause()
+  //   myalertSkip3(); //+27
+  //   hasAlertedAt13=true;
+  // }
 
-  if (x.currentTime >= 15 && x.currentTime <= 18 && !hasAlertedAt40) {
+  if(x.currentTime >= 15 && x.currentTime <= 20 &&!hasAlertedAt15){
     x.pause()
-    myalertSkip();
+    myalertSkip2(); //+30
+    hasAlertedAt15 = true;
+  }
+
+  if (x.currentTime >= 20 && x.currentTime <= 25 && !hasAlertedAt40) {
+    x.pause()
+    myalert();
     hasAlertedAt40 = true;
   }
   
-  if (x.currentTime >= 43 && x.currentTime <= 47 && !hasAlertedAt48) {
+
+  if (x.currentTime >= 40 && x.currentTime <= 42 && !hasAlertedAt45) {
+    x.pause()
+    myalert();
+    hasAlertedAt45 = true;
+    // x.currentTime+=5
+  }
+
+  if (x.currentTime >= 43 && x.currentTime <= 44 && !hasAlertedAt43 && myDiv.classList.contains('show-box')) {
+    document.getElementById('myVideo').className = 'myVideo'
+    hasAlertedAt43 = true;
+  }
+
+
+  if (x.currentTime >= 45 && x.currentTime <= 47 && !hasAlertedAt48) {
     x.pause()
     myalert();
     hasAlertedAt48 = true;
   }
+
 
   if (x.currentTime >= 48 && x.currentTime <= 49 && !hasAlertedAt50) {
     if (myDiv.classList.contains('show-box')) {
@@ -69,12 +99,11 @@ function myFunction() {
     }
   }
 
-//   if (x.currentTime >= 48 && x.currentTime <= 49 && !hasAlertedAt50 && myDiv.classList.contains('myVideo')) {
-//     x.pause()
-//     myalert();
-//     hasAlertedAt50 = true;
-//   }
-
+  if (x.currentTime >= 48 && x.currentTime <= 49 && !hasAlertedAt50 && myDiv.classList.contains('myVideo')) {
+    x.pause()
+    myalert();
+    hasAlertedAt50 = true;
+  }
 
   ///// hardware 
   if (x.currentTime >= 52 && x.currentTime <= 57 && !hasAlertedAt70) {
