@@ -1,4 +1,4 @@
-let cachedTerms = ["algorithm"];
+let cachedTerms = [];
 const elementsWithTextContentToSearch = "a, p, h1, h2, h3, h4, h5, h6";
 const containerElements = "span, div, li, th, td, dt, dd";
 
