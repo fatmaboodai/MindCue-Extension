@@ -10,7 +10,7 @@ function addTermToList () {
   if (newTerm == "") {
     return;
   }
-  document.querySelector('#add-btn').disabled = true;
+  // document.querySelector('#add-btn').disabled = true;
 
   terms.push(newTerm);
   storage.set({'spoilerterms': terms}, function() {
@@ -74,9 +74,9 @@ function generateTermsListHTML(terms) {
 function showEmptyListBlock(show) {
   var emptyTip = document.getElementById("empty-tip");
   if (show) {
-    emptyTip.style.display = "block";
+    pass
   } else {
-    emptyTip.style.display = "none";
+    emptyTip.style.display = "block";
   }
 }
 
@@ -102,7 +102,7 @@ function createDeleteButton (index) {
   // Create the button itself
   var deleteBtn = document.createElement('a');
   deleteBtn.title = "Delete";
-  deleteBtn.className = "red delete-btn grey-until-hover hover-red";
+  deleteBtn.className = "delete-btn";
   deleteBtn.id = index;
 
   // Create our delete button icon
