@@ -7,5 +7,19 @@
     "action": {
         "default_popup": "index.html",
         "default_title": "MindCue Extension"
-    }
+    },
+    "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "css": ["textBlocking/spoiler_style.css"],
+          "js": ["textBlocking/content_script.js"],
+          "run_at": "document_end"
+        }
+      ],
+     "permissions": [
+       "declarativeContent",
+       "activeTab",
+       "storage",
+       "https://ajax.googleapis.com/"
+     ]
 }
