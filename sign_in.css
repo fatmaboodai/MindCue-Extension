@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
-        
+  html{
+    overflow: hidden
+  }      
 #sign_in_form {
   align-items: center;
   color:#638184;
@@ -55,18 +57,19 @@ body {
   align-items: center;
   text-align: center;
   width: 284px;
-  height: 450px;
+  height: 600px;
   margin: auto;
   background: url('images/Rectangle.png'), url('images/Ellipse2.png'),url("images/RectangleTop.png");
   background-repeat:no-repeat , no-repeat ,no-repeat;
   background-position: right bottom, center center , 122% -179% ;
-  background-size: 202px 200px, 100%, 499px 500px ;
+  background-size: 202px 200px, 100%, 499px 515px ;
   box-sizing: border-box;
- 
+  overflow: hidden
 }
 #main {
   margin-top: 50%;
   margin-bottom: 55%;
+  overflow: hidden
 }
 #Ellipse7{
 position: absolute;
