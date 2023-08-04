@@ -128,3 +128,8 @@ box-sizing: border-box;
   padding: 10px;
   position: relative;
 }
+#backArrow{
+  top: 2%;
+  position: fixed;
+  left: 4%;
+}
