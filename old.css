@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
+html{
+  overflow: hidden
+}
+body {
+    background-color: #F9F9F9;
+    width: 284px;
+    height: 600px;
+    text-align: center;
+    border-radius: 10px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #638184;
+    overflow: hidden
+}
+
+#maindiv {
+  text-align: center;
+  overflow: hidden
+}
+
+hr {
+  border: 1px solid #638184;
+}
+
+#logout {
+  color: #DC989A;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+#logout:active, #logout:focus, #logout:hover{
+  text-decoration: none;
+}
+
+img:hover , img:focus, img:active, image:checked{
+  box-sizing: border-box;
+  border: 2px solid #DC989A;
+  border-radius: 5px;
+}
+
+#click, #click1, #click2, #click3 {
+  display: none;
+  box-sizing: border-box;
+  border: 2px solid #DC989A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+#click:checked+label>img {
+  box-sizing: border-box;
+  border: 2px solid #DC989A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#click1:checked+label>img {
+  box-sizing: border-box;
+  border: 2px solid #DC989A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+li {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+    color: #638184;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+}
+  
+  .nav-pills {
+    width: 50%;
+  }
+  
+  .nav-pills .nav-link{
+    font-weight: bold;
+    
+    background: #638184;
+    color: #E5EFF0;
+    border-radius: 30px;
+    border: 1px solid #E5EFF0;
+  }
+  .nav-pills .nav-link.active{
+    background: #F9F9F9;
+    color: #638184;
+  }
+  .tab-content{
+    background: #F9F9F9;
+    color: #638184;
+    
+  }
+  .tab-content button{
+    align-items: center;
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    width: 185px;
+    border: 2px solid #DC989A;
+    border-radius: 10px;
+    color: #DC989A;
+    padding: 10px;
+    background-color: #F9F9F9;
+  }
+
+  .tab-content button:hover {
+    background-color: #DC989A;
+    color: #F9F9F9;
+    border: 2px #F9F9F9 solid;
+  }
+
+ .tab-content button:active {
+    background-color: #DC989A;
+    color: #F9F9F9;
+    border: 2px #F9F9F9 solid;
+ }
+ .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+#backArrow{
+  top: 2%;
+  position: fixed;
+  left: 4%;
+}

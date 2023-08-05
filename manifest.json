@@ -18,7 +18,6 @@
       ],
      "permissions": [
        "declarativeContent",
-       "activeTab",
        "storage",
        "https://ajax.googleapis.com/"
      ]

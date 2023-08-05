@@ -21,9 +21,12 @@ body {
     border-color: #efd1d2;
     border-radius: 0px 0px 15px 15px;
     height: 193px;
-    left: 0;
-    top: 0;
-    margin-bottom: 50%;
+    margin-bottom: 41.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 7%;
   }
 
 
@@ -72,9 +75,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    margin-top: 7%;
-    margin-left: 13px;
+    padding: 15px;
     }
 .PageStyle{
     color: #638083;
