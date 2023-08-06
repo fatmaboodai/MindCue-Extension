@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="tabs.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -23,20 +21,22 @@
 </div>
 <div id="maindiv">
       <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Tab1')">Window</button>
-        <button class="tablinks" onclick="openTab(event, 'Tab2')">Screen</button>
+        <!-- <button class="tablinks" onclick="openTab(event, 'Tab1')">Window</button>
+        <button class="tablinks" onclick="openTab(event, 'Tab2')">Screen</button> -->
+        <button id="tab1Button" class="tablinks active">Window</button>
+        <button id="tab2Button" class="tablinks">Screen</button>
       </div>
 <div id="Tab1" class="tabcontent">
 <p>Select a Window to monitor:</p>
     <input type="checkbox" id="click">
     <label class= "selectedwindow" for="click">
-    <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI"></a>
+    <img  id="tabsImages" src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI"></a>
     <p>OpenBCI - store...</p>
     </label>
     
     <input type="checkbox" id="click1">
     <label class= "selectedwindow" for="click1">
-    <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+    <img id="tabsImages"  src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
     <p>Youtube - I won...</p>
     </label>
 </div>
@@ -45,25 +45,22 @@
 <p>Select a Screen to monitor:</p>
     <input type="checkbox" id="click2">
     <label class= "selectedwindow" for="click2">
-    <img src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
+    <img id="tabsImages" src="images/Screenshot 2023-03-22 000348 1.png" alt="OpenBCI">
          <p>OpenBCI - store...</p>
     </label>
     <input type="checkbox" id="click3">
     <label class= "selectedwindow" for="click3">
-    <img src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
+    <img  id="tabsImages" src="images/Screenshot 2023-03-22 000430 1.png" alt="Youtube">
          <p>Youtube - I won...</p>
     </label>
 
 </div>
 <div class="fotter">
-<button id="selectTab" type="submit" onclick="window.location.href = 'Youtube.html';">Select Tab</button>
+<button id="selectTab" type="submit">Select Tab</button>
  <br>
 <a href="./index.html" id="logout">Logout</a>
 </div>
 </div>
-
-
-
 <script src="tabs.js"></script>
 </body>
 </html>

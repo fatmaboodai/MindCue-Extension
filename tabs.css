@@ -5,7 +5,7 @@ html{
 body {
     background-color: #F9F9F9;
     width: 284px;
-    height: 600px;
+    height:600px;
     text-align: center;
     border-radius: 10px;
     margin: auto;
@@ -20,8 +20,9 @@ body {
 #maindiv {
   text-align: center;
   overflow: hidden;
-  border-bottom: 4px solid #E5EFF0;
  border-radius: 0px 0px 15px 15px;
+margin-right:7px;
+margin-left:7px;
 
 }
 
@@ -43,7 +44,7 @@ hr {
   text-decoration: none;
 }
 
-img:hover , img:focus, img:active, image:checked{
+#tabsImages:hover , img:focus, img:active, image:checked{
   box-sizing: border-box;
   border: 2px solid #DC989A;
   border-radius: 5px;
@@ -59,10 +60,11 @@ img:hover , img:focus, img:active, image:checked{
 
  .cover img {
   width: 100%;
-  height: 100%;
+  height: 120px;
   object-fit: cover;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
+  margin-bottom: 1.5%;
 }
 #backArrow{
   top: 2%;
@@ -103,12 +105,16 @@ img:hover , img:focus, img:active, image:checked{
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 6px 6px;
   border: 1px solid #F9F9F9;
   border-top: none;
   background-color: #F9F9F9;
   border-left: 4px solid #E5EFF0;
   border-right: 4px solid #E5EFF0;
+  border-bottom: 4px solid #E5EFF0;
+ border-radius: 0px 0px 15px 15px;
+
+
 }
 #selectTab{
   align-items: center;
@@ -116,12 +122,13 @@ img:hover , img:focus, img:active, image:checked{
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    width: 185px;
+    width: 250px;
     border: 2px solid #DC989A;
     border-radius: 10px;
     color: #DC989A;
-    padding: 10px;
-    background-color: #F9F9F9
+    padding: 7px;
+    background-color: #F9F9F9;
+    margin-bottom: 3%;
 }
 #selectTab:hover {
   background-color: #DC989A;
@@ -140,9 +147,7 @@ p{
   margin-top:5px ;
 }
 .fotter{
- border-right: 4px solid #E5EFF0;
- border-left: 4px solid #E5EFF0;
- margin-top: 0;
  border-radius: 0px 0px 10px 10px;
+ margin-top: 10px;
 
 }
