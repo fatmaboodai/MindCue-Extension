@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href="timer.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cover">
+        <img src="images/Screenshot 2023-04-22 225844.png" alt="">
+    </div>
+    <div id="backArrow" >
+        <a href="./Dashboard.html">    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
+            <path d="M0.292892 7.29289C-0.0976315 7.68342 -0.0976315 8.31658 0.292892 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292892 7.29289ZM20 7L1 7V9L20 9V7Z" fill="#A38574"/>
+            </svg></a>
+    </div>
+    <div id="mainform">
+        <div id="Header">
+            <h2>Break <p>in Session</p></h2>
+        </div>
+    <div id="box">
+        <h2>
+            Time Remaining
+        </h2>
+        <div id="timer">
+            <svg id="Timer1" xmlns="http://www.w3.org/2000/svg" width="104" height="104" viewBox="0 0 104 104" fill="none">
+                <circle cx="52" cy="52" r="48" stroke="#C2DCDE" stroke-width="8"/>
+              </svg>
+              <svg id="Timer2" xmlns="http://www.w3.org/2000/svg" width="103" height="104" viewBox="0 0 103 104" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M94.3437 63.9999C89.1203 82.4679 72.1404 95.9999 52 95.9999C27.6995 95.9999 8 76.3004 8 51.9999C8 28.7076 26.0986 9.64254 49 8.10054V0.084971C21.6772 1.63914 0 24.288 0 51.9999C0 80.7187 23.2812 104 52 104C76.5886 104 97.1912 86.9335 102.609 63.9999H94.3437Z" fill="#80B3B7"/>
+              </svg>
+              <p id="timeleft">00:04:05</p>
+
+        </div>
+     
+    </div>
+    </div>
+    <div class="fotter">
+    <button id="ChangeTab" type="submit" ><a href="./tabselect.html"> Change Tab </a></button>
+         <div id="modifyTimer">
+        <button class="ModifyButtons" type="submit">Pause</button>
+        <button class="ModifyButtons" type="submit">Stop</button>
+         </div>
+        <a href="./index.html" id="logout">Logout</a>
+    </div>
+</body>
+</html>

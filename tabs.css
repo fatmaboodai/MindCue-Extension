@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Poppins:wght@500;600&display=swap');
-html{
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&family=Poppins:ital,wght@0,300;1,100&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');html{
   overflow: hidden
 }
 body {
@@ -137,12 +138,29 @@ hr {
   text-decoration: none;
 }
 
+
 #selectTab:active {
   background-color: #DC989A;
   color: white;
   border: 2px #F9F9F9 solid;
   text-decoration: none;
 }
+
+#selectTab a{
+  align-items: center;
+    font-family: 'Lexend', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    width: 228px;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: #DC989A;
+}
+#selectTab a:hover{
+color: #F9F9F9;
+}
+
 p{
   margin-top:5px ;
 }
