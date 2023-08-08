@@ -87,13 +87,13 @@ function generateListItem (index) {
 
     // Create our delete button
     var deleteBtn = createDeleteButton (index);
-    listItem.appendChild(deleteBtn);
 
     // Insert the term into the list
     var newTerm = document.createElement('span');
     newTerm.className = " search-term";
     newTerm.innerHTML = terms[index];
     listItem.appendChild(newTerm);
+    listItem.appendChild(deleteBtn);
 
     return listItem;
 }

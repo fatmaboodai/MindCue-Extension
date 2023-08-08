@@ -24,10 +24,11 @@ body {
     object-fit: cover;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
+    margin-bottom: 3%;
  }
 #spoiler-textfield {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     display: inline-block;
     border: 3px none;
     box-sizing: border-box;
@@ -35,7 +36,13 @@ body {
     border-radius: 5px;
     border: 1px solid #DC989A;
     background: rgba(145, 46, 64, 0.00);
-    margin-right: 5px;
+    position: relative;
+    text-align: center;
+  }
+  svg{
+    position:absolute;
+    margin-top: 6px;
+    margin-left: 6px;
   }
   #add-btn{
     font-family: 'Lexend', sans-serif;
@@ -46,12 +53,11 @@ body {
     color: #DC989A;
     text-decoration: none;
     margin-left: 200px;
+    margin-top: 2px;
   }
   #add-btn:hover {
     background-color: #DC989A;
     color: white;
-    border: 2px #DC989A solid;
-    text-decoration: none;
   }
       
 
@@ -65,37 +71,39 @@ button:focus {
 #add-spoiler-section{
   background-color: #F9F9F9;
   border-radius: 0px 0px 15px 15px;
-  margin-top: 80px; 
+  margin-top: 75px; 
 
 }
 #add-spoiler-section p{
 color: #638184;
-font-family: 'Lexend', sans-serif;
-font-size: 13px;
+font-family: 'Poppins', sans-serif;
+font-size: 12px;
 font-style: normal;
-font-weight: 400;
 line-height: normal;
 float: left;
-margin-left: 5px;
+margin: 0px 0px 5px 5px;
+font-weight: 600;
+
 }
 /* the keywords list header */
 #spoiler-strings h2{
 color: #638184;
 text-align: center;
 font-family: 'Poppins', sans-serif;
-font-size: 24px;
+font-size: 17px;
 font-style: normal;
 line-height: normal;
 border-radius: 15px 15px 0px 0px;
-background: #D2E5E7;
+background: #d2e5e773;
 margin: 0;
+padding: 5px;
 }
 #spoiler-strings{
   padding: 0.5%;
   min-height: 25vh;
   margin-bottom: 10px;
-  margin-right: 2%;
-  margin-left: 2%;
+  margin-right: 5%;
+  margin-left: 5%;
 
 }
 /* thye empty section under the keywords header */
@@ -132,23 +140,45 @@ box-sizing: border-box;
   }
   /* li item */
     .spoiler-item{
-    width: 283px;
-    height: 23px;
-    flex-shrink: 0;
+    width: 190px;
+    height: 15px;
     border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+  }
+  .search-term{
+  color: #638184;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
   }
   /* div that contains the ul */
   #spoiler-list-container{
-  display: block;
+  /* display: block; */
   box-sizing: border-box;
   }
 .spoiler-list{
   box-sizing: border-box;
-  padding: 10px;
-  position: relative;
+  margin: auto;
+  margin-left: 13%;
 }
 #backArrow{
   top: 2%;
   position: fixed;
   left: 4%;
 }
+.delete-btn{
+  border: none;
+}
+input:checked {
+  accent-color: #DC989A;
+  background-color: #DC989A;
+  border-radius: 5px;
+ }
+
+ input[type ='checkbox']{
+  border: 2px #638184 solid;
+  
+ }
