@@ -64,13 +64,13 @@ color: #80B3B7;
 
 #box{
 width: 228px;
-height: 221px;
+height: 180px;
 border-radius: 10px;
 border: 3px solid #FAE3E4;
 background: rgba(229, 239, 240, 0.00);
 }
 
-#box h2{
+h2{
     color: #DC989A;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -148,8 +148,7 @@ font-family: 'Poppins', sans-serif;
 font-size: 14px;
 font-style: normal;
 line-height: normal;
-margin-bottom: 14.8%;
-
+margin-bottom: 33.5%;
 }
 .ModifyButtons:hover {
     background-color: #DC989A;
@@ -165,25 +164,63 @@ margin-bottom: 14.8%;
     text-decoration: none;
   }
 
-#Timer1{
-    position: absolute;
-}
-
-#Timer2{
+  .base-timer {
     position: relative;
-}
-
-
-#timer{
-    margin-top: 15%;
-}
-#timeleft{
-color: #DC989A;
-font-family: 'Bebas Neue', sans-serif;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-position: relative;
-bottom: 85px;
-}
+    width:104px;
+  height:104px;
+  margin: auto;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: #C2DCDE;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: #80B3B7;
+  }
+  
+  .base-timer__path-remaining.orange {
+      color: #80B3B7;
+  
+  }
+  
+  .base-timer__path-remaining.red {
+      color: #80B3B7;
+  
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width:104px;
+    height:104px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #DC989A;
+    font-style: normal;
+  line-height: normal;
+  font-family: 'Bebas Neue', sans-serif;
+  margin-top: 4%;
+  }
