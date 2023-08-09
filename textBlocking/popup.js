@@ -251,3 +251,42 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#snooze-btn').addEventListener('click', function() { clickSnooze(true); } );
   document.querySelector('#unsnooze-btn').addEventListener('click', function() { clickSnooze(false); });
 });
+const checkboxContainer = document.getElementById('checkboxContainer');
+
+const wordList = [
+    'War',
+    'Gore',
+    'Blood',
+    'Gun',
+    'Death',
+    'Child Abuse',
+    'War',
+    'Gore',
+    'Blood',
+    'Gun',
+    'Death',
+    'Child Abuse',
+    'Haya'
+    // Add more words to this list
+];
+
+generateCheckboxes();
+
+function generateCheckboxes() {
+    for (let i = 0; i < wordList.length; i++) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `checkbox${i}`;
+        
+        const label = document.createElement('label');
+        label.textContent = wordList[i];
+        label.htmlFor = `checkbox${i}`;
+        
+        const checkboxItem = document.createElement('div');
+        checkboxItem.className = 'checkbox-item';
+        checkboxItem.appendChild(checkbox);
+        checkboxItem.appendChild(label);
+        
+        checkboxContainer.appendChild(checkboxItem);
+    }
+}

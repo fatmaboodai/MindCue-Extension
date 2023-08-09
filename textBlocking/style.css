@@ -71,8 +71,6 @@ button:focus {
 #add-spoiler-section{
   background-color: #F9F9F9;
   border-radius: 0px 0px 15px 15px;
-  margin-top: 75px; 
-
 }
 #add-spoiler-section p{
 color: #638184;
@@ -83,7 +81,6 @@ line-height: normal;
 float: left;
 margin: 0px 0px 5px 5px;
 font-weight: 600;
-
 }
 /* the keywords list header */
 #spoiler-strings h2{
@@ -140,7 +137,7 @@ box-sizing: border-box;
   }
   /* li item */
     .spoiler-item{
-    width: 190px;
+    /* width: 230px; */
     height: 15px;
     border: none;
     display: flex;
@@ -151,7 +148,7 @@ box-sizing: border-box;
   .search-term{
   color: #638184;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   }
   /* div that contains the ul */
@@ -162,7 +159,11 @@ box-sizing: border-box;
 .spoiler-list{
   box-sizing: border-box;
   margin: auto;
-  margin-left: 13%;
+  margin-left: 4%;
+  overflow-y: scroll;
+  max-height: 100px;
+  width: 235px;
+
 }
 #backArrow{
   top: 2%;
@@ -173,36 +174,46 @@ box-sizing: border-box;
   border: none;
 }
 
+.container {
+  border-radius: 5px;
+  text-align: left;
 
-/* 
- body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-} */
-
-.container {
-  padding: 20px;
-  border-radius: 5px;
-  text-align: left;
+  width: 235px;
 }
 
 #checkboxContainer{
   max-height: 100px; /* Adjust the desired fixed height */
   overflow-y: scroll;
+  width: 235px;
+  margin-left: 5%;
 }
-
-.checkbox-item {
-  margin: 5px 0;
-  display: flex;
-  align-items: center;
-}
+input:checked {
+  accent-color: #DC989A;
+  background-color: #DC989A;
+  border-radius: 5px;
+ }
 
 input[type="checkbox"] {
-  margin: 0 5px 0 0;
+  margin: 0px 10px 0 0px;
+  border: 2px #638184 solid;
+}
+.checkbox-item{
+  width: 200px;
+  height: 15px;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  
+}
+.checkbox-item label{
+  color: #638184;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 }

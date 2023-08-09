@@ -47,17 +47,14 @@
  <div id="empty-tip">
   <div id="spoiler-list-container">
     <!-- Insert spoiler term list here -->
-    <ul id="spoiler-list">
     <div class="container">
-
-        <div id="checkboxContainer"></div>
+    <div id="checkboxContainer"></div>
     </div>
-    </ul>
   </div>
    <!-- This will get more complicated when new spoiler groups can be managed -->
    <div id="add-spoiler-section" class="section">
     <p>
-      Add your own : 
+      Search your own : 
     </p>
     <div id="spoiler-entry-field">
       <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
@@ -76,18 +73,6 @@
  
 <!-- All Search Strings will be displayed here -->
 </div>
-    <div id="footer">
-      <!-- <div>
-        <a href="options.html" target="new" title="Options" >
-          <i>settings</i><span></span></a>
-        <a href="https://github.com/lucasrowe/spoiled" target="new" title="Code" class=" grey-until-hover">
-          <i class="material-icons md-24 icon">code</i><span class="link-with-icon">Code</span></a>
-        <a href="https://twitter.com/LucasRowe" target="new" title="Say Hello" class="grey-until-hover">
-          <i class="material-icons md-24 icon">mood</i><span class="link-with-icon">Hello</span></a>
-      </div> -->
-    </div>
-
-    
        <!-- Load Snooze last because we want it rendering on top -->
        <div class="snoozeContainer" >
         <div class="snooze-hovertip">
@@ -108,46 +93,6 @@
                  value="&#xE857;"/>
         </div>
       </div>
-    <script>
-      const checkboxContainer = document.getElementById('checkboxContainer');
-
-const wordList = [
-    'Apple',
-    'Banana',
-    'Cherry',
-    'Grapes',
-    'Orange',
-    'Peach',
-    'Pear',
-    'Strawberry',
-    'Watermelon',
-    'Fatma',
-    'Fatma',
-    'Fatma',
-
-    // Add more words to this list
-];
-
-generateCheckboxes();
-
-function generateCheckboxes() {
-    for (let i = 0; i < wordList.length; i++) {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `checkbox${i}`;
-        
-        const label = document.createElement('label');
-        label.textContent = wordList[i];
-        label.htmlFor = `checkbox${i}`;
-        
-        const checkboxItem = document.createElement('div');
-        checkboxItem.className = 'checkbox-item';
-        checkboxItem.appendChild(checkbox);
-        checkboxItem.appendChild(label);
-        
-        checkboxContainer.appendChild(checkboxItem);
-    }
-}
-    </script>
+  <script src="popup.js"></script>
   </body>
 </html>
