@@ -52,8 +52,6 @@ function generateTermsListHTML(terms) {
     showEmptyListBlock (true);
     document.querySelector('#snooze-btn').disabled = true;
   } else {
-    showEmptyListBlock (false);
-    document.querySelector('#snooze-btn').disabled = false;
 
     // Start popuplating the list
     var newList = document.createElement('ul');
@@ -148,21 +146,6 @@ function closePopOver(divID) {
   document.getElementById("help-popover").style.display = "none";
 }
 
-// SNOOZE BEHAVIOR
-
-function displaySnoozeScreen(snoozeOn, timeToUnsnooze) {
-  if (snoozeOn) {
-    document.getElementById("snoozing-text").style.display = "block";
-    // Set the "until X:XX PM string"
-    var unsnoozeTime = new Date(timeToUnsnooze);
-    var str = "until " + stripSecondsFromTimeString(unsnoozeTime.toLocaleTimeString());
-    document.querySelector(".snooze-time-remaining").innerHTML = str;
-  } else {
-    document.querySelector(".snooze-text").style.display = "none";
-  }
-  showBackgroundTint(snoozeOn);
-  toggleSnoozeButton(!snoozeOn);
-}
 
 function stripSecondsFromTimeString (timeString) {
   var splitTime = timeString.split(":");
@@ -179,61 +162,6 @@ function showBackgroundTint(doShow) {
   }
 }
 
-function clickSnooze(snoozeOn) {
-  setSnoozePrefs(snoozeOn)
-
-  // Always refresh the page. Either the user wants content hidden now
-  // (snooze) or revealed (unsnooze)
-  chrome.tabs.reload();
-}
-
-function setSnoozePrefs(snoozeOn) {
-  var timeToUnsnooze = new Date().getTime() + snoozeTime
-  storage.set({'isSnoozeOn': snoozeOn, 'timeToUnsnooze': timeToUnsnooze},
-    function() {
-      if (chrome.runtime.error) {
-        console.log("Runtime error.");
-      }
-    displaySnoozeScreen(snoozeOn, timeToUnsnooze);
-  });
-}
-
-function getSnoozePrefs() {
-  storage.get(['isSnoozeOn', 'timeToUnsnooze'], function(result) {
-    // Default isSnoozeOn to false
-    if (result.isSnoozeOn == null) {
-      result.isSnoozeOn = false;
-    }
-
-    // Display the snooze screen (or turn snooze off)
-    if (result.isSnoozeOn && isSnoozeTimeUp(result.timeToUnsnooze)) {
-      // Time is up, turn off snooze
-      setSnoozePrefs(false);
-    } else {
-      displaySnoozeScreen(result.isSnoozeOn, result.timeToUnsnooze);
-    }
-  });
-}
-
-function isSnoozeTimeUp(timeToUnsnooze) {
-  var now = new Date();
-  var isPastSnoozeTime = now.getTime() > timeToUnsnooze;
-  return isPastSnoozeTime;
-}
-
-function toggleSnoozeButton(doShow) {
-  var snoozeBtn = document.getElementById("snooze-btn");
-  var unSnoozeBtn = document.getElementById("unsnooze-btn");
-
-  if (doShow) {
-    snoozeBtn.style.display = "block";
-    unSnoozeBtn.style.display = "none";
-  } else {
-    snoozeBtn.style.display = "none";
-    unSnoozeBtn.style.display = "block";
-  }
-}
-
 // MAIN
 
 function main() {
@@ -242,31 +170,23 @@ function main() {
 
 document.addEventListener('DOMContentLoaded', function () {
   main();
-  getSnoozePrefs();
   document.querySelector('#spoiler-textfield').focus ();
   document.querySelector('#add-btn').addEventListener('click', addTermToList);
   document.querySelector('#add-btn').disabled = true;
-  document.querySelector('#spoiler-textfield').addEventListener("keyup", addTermToListEnter);
-  document.querySelector('#help-icon').addEventListener('click', clickHelpPopoverIcon);
-  document.querySelector('#snooze-btn').addEventListener('click', function() { clickSnooze(true); } );
-  document.querySelector('#unsnooze-btn').addEventListener('click', function() { clickSnooze(false); });
+  document.querySelector('#spoiler-textfield').addEventListener("keyup", addTermToListEnter)
 });
 const checkboxContainer = document.getElementById('checkboxContainer');
+const searchInput = document.getElementById('searchInput');
 
 const wordList = [
-    'War',
-    'Gore',
-    'Blood',
-    'Gun',
-    'Death',
-    'Child Abuse',
-    'War',
-    'Gore',
-    'Blood',
-    'Gun',
-    'Death',
-    'Child Abuse',
-    'Haya'
+  'Child Abuse',
+  'War',
+  'Drugs',
+  'Self Harm',
+  'Child Abuse',
+  'War',
+  'Drugs',
+  'Self Harm'
     // Add more words to this list
 ];
 
@@ -277,16 +197,36 @@ function generateCheckboxes() {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = `checkbox${i}`;
-        
+
         const label = document.createElement('label');
         label.textContent = wordList[i];
         label.htmlFor = `checkbox${i}`;
-        
+
         const checkboxItem = document.createElement('div');
         checkboxItem.className = 'checkbox-item';
         checkboxItem.appendChild(checkbox);
         checkboxItem.appendChild(label);
-        
+
         checkboxContainer.appendChild(checkboxItem);
     }
 }
+
+// Add event listener for search input changes
+searchInput.addEventListener('input', filterCheckboxes);
+
+function filterCheckboxes() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const checkboxes = checkboxContainer.getElementsByClassName('checkbox-item');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        const label = checkboxes[i].getElementsByTagName('label')[0];
+        const labelValue = label.textContent.toLowerCase();
+
+        if (labelValue.includes(searchTerm)) {
+            checkboxes[i].style.display = 'flex';
+        } else {
+            checkboxes[i].style.display = 'none';
+        }
+    }
+}
+

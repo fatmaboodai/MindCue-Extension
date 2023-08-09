@@ -39,6 +39,19 @@ body {
     position: relative;
     text-align: center;
   }
+  #searchInput{
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    border: 3px none;
+    box-sizing: border-box;
+    color: #638184;
+    border-radius: 5px;
+    border: 1px solid #DC989A;
+    background: rgba(145, 46, 64, 0.00);
+    position: relative;
+    text-align: center;
+  }
   svg{
     position:absolute;
     margin-top: 6px;
@@ -71,6 +84,7 @@ button:focus {
 #add-spoiler-section{
   background-color: #F9F9F9;
   border-radius: 0px 0px 15px 15px;
+  margin-bottom: 5%;
 }
 #add-spoiler-section p{
 color: #638184;
@@ -79,7 +93,7 @@ font-size: 12px;
 font-style: normal;
 line-height: normal;
 float: left;
-margin: 0px 0px 5px 5px;
+margin: 0 0px 5px 5px;
 font-weight: 600;
 }
 /* the keywords list header */
@@ -96,12 +110,10 @@ margin: 0;
 padding: 5px;
 }
 #spoiler-strings{
-  padding: 0.5%;
-  min-height: 25vh;
-  margin-bottom: 10px;
+  min-height: 5vh;
+  margin-bottom: 5px;
   margin-right: 5%;
   margin-left: 5%;
-
 }
 /* thye empty section under the keywords header */
 #empty-tip{
@@ -136,7 +148,7 @@ box-sizing: border-box;
   line-height: normal;
   }
   /* li item */
-    .spoiler-item{
+.spoiler-item{
     /* width: 230px; */
     height: 15px;
     border: none;
@@ -145,23 +157,24 @@ box-sizing: border-box;
     align-items: center;
     margin-top: 2%;
   }
-  .search-term{
+.search-term{
   color: #638184;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 600;
   }
   /* div that contains the ul */
-  #spoiler-list-container{
-  /* display: block; */
+ #spoiler-list-container{
   box-sizing: border-box;
+  max-height: 75px;
   }
+
 .spoiler-list{
   box-sizing: border-box;
   margin: auto;
   margin-left: 4%;
   overflow-y: scroll;
-  max-height: 100px;
+  height: 100px;
   width: 235px;
 
 }
@@ -177,7 +190,6 @@ box-sizing: border-box;
 .container {
   border-radius: 5px;
   text-align: left;
-
   margin: 0;
   padding: 0;
   display: flex;
