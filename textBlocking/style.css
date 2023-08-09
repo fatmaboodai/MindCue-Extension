@@ -172,13 +172,37 @@ box-sizing: border-box;
 .delete-btn{
   border: none;
 }
-input:checked {
-  accent-color: #DC989A;
-  background-color: #DC989A;
-  border-radius: 5px;
- }
 
- input[type ='checkbox']{
-  border: 2px #638184 solid;
-  
- }
+
+/* 
+ body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
+
+.container {
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+#checkboxContainer{
+  max-height: 100px; /* Adjust the desired fixed height */
+  overflow-y: scroll;
+}
+
+.checkbox-item {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin: 0 5px 0 0;
+}

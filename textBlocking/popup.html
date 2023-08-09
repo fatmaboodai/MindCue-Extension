@@ -8,7 +8,6 @@
     <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,100&family=Roboto&display=swap');
     </style>
-    <script src="popup.js"></script>
   </head>
   <body>
     <div class="cover">
@@ -49,8 +48,10 @@
   <div id="spoiler-list-container">
     <!-- Insert spoiler term list here -->
     <ul id="spoiler-list">
-      <input type="checkbox" name="setting1" value="Blackout">
-      <label for="setting1">War</label>
+    <div class="container">
+
+        <div id="checkboxContainer"></div>
+    </div>
     </ul>
   </div>
    <!-- This will get more complicated when new spoiler groups can be managed -->
@@ -107,5 +108,46 @@
                  value="&#xE857;"/>
         </div>
       </div>
+    <script>
+      const checkboxContainer = document.getElementById('checkboxContainer');
+
+const wordList = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Grapes',
+    'Orange',
+    'Peach',
+    'Pear',
+    'Strawberry',
+    'Watermelon',
+    'Fatma',
+    'Fatma',
+    'Fatma',
+
+    // Add more words to this list
+];
+
+generateCheckboxes();
+
+function generateCheckboxes() {
+    for (let i = 0; i < wordList.length; i++) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `checkbox${i}`;
+        
+        const label = document.createElement('label');
+        label.textContent = wordList[i];
+        label.htmlFor = `checkbox${i}`;
+        
+        const checkboxItem = document.createElement('div');
+        checkboxItem.className = 'checkbox-item';
+        checkboxItem.appendChild(checkbox);
+        checkboxItem.appendChild(label);
+        
+        checkboxContainer.appendChild(checkboxItem);
+    }
+}
+    </script>
   </body>
 </html>
