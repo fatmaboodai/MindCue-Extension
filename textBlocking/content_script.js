@@ -22,7 +22,7 @@ chrome.storage.sync.get(null, (result) => {
 
   enableMutationObserver();
   cachedTerms = result.spoilerterms;
-  blockSpoilerContent(document, result.spoilerterms, "*****");
+  blockSpoilerContent(document, result.spoilerterms, "***");
 });
 
 // This is a duplicate method. I don't know how to have utility scripts shared
@@ -45,24 +45,105 @@ function blockSpoilerContent(rootNode, spoilerTerms, blockText) {
   }
 }
 
+// function pluralize(word) {
+//   if (word.endsWith('s')) {
+//       return word + 'es'; // Example: word ends with "s" -> cats -> cates
+//   } else {
+//       return word + 's'; // Example: word doesn't end with "s" -> cat -> cats
+//   }
+// }
+
+// function replacenodesWithMatchingText(nodes, spoilerTerms, replaceString) {
+//   nodes = Array.from(nodes);
+//   nodes.reverse();
+//   for (const node of nodes) {
+//       for (const spoilerTerm of spoilerTerms) {
+//           if (compareForSpoiler(node, spoilerTerm)) {
+//               if (!node.parentNode || node.parentNode.nodeName === "BODY") {
+//                   // ignore top-most node in DOM to avoid stomping entire DOM
+//                   // see issue #16 for more info
+//                   continue;
+//               }
+//               const originalText = node.textContent;
+//               const spoilerVariations = [spoilerTerm, pluralize(spoilerTerm)];
+//               const spoilerRegex = new RegExp(`\\b(?:${spoilerVariations.join('|')})\\b`, "ig");
+//               const newText = originalText.replace(spoilerRegex, replaceString);
+//               if (originalText !== newText) {
+//                   node.className += " hidden-spoiler";
+//                   node.innerHTML = newText;
+//                   blurNearestChildrenImages(node);
+//               }
+//           }
+//       }
+//   }
+// }
+function pluralize(word) {
+  if (word.endsWith('s')) {
+    return word + 'es'; // Example: word ends with "s" -> cats -> cates
+  } else {
+    return word + 's'; // Example: word doesn't end with "s" -> cat -> cats
+  }
+}
+
+function compareForSpoiler(node, spoilerTerm) {
+  // Implement your logic for comparing node's content with spoilerTerm
+  // This function should return true if the content matches, false otherwise
+  // Example:
+  return node.textContent.toLowerCase().includes(spoilerTerm.toLowerCase());
+}
+
+function blurNearestChildrenImages(node) {
+  // Implement your logic for blurring nearest children images
+  // This function should apply blur effect to images within the given node
+  // Example:
+  const images = node.querySelectorAll('img');
+  images.forEach(image => {
+    image.style.filter = 'blur(100px)';
+  });
+}
+
+function checkIfWordsMatchHyphenated(node, spoilerTerm) {
+  const words = spoilerTerm.split(' ');
+  const hyphenatedTerm = words.join('-');
+  
+  if (compareForSpoiler(node, hyphenatedTerm)) {
+    return hyphenatedTerm;
+  }
+  
+  return null;
+}
+
 function replacenodesWithMatchingText(nodes, spoilerTerms, replaceString) {
   nodes = Array.from(nodes);
   nodes.reverse();
   for (const node of nodes) {
     for (const spoilerTerm of spoilerTerms) {
-      if (compareForSpoiler(node, spoilerTerm)) {
+      const matchedTerm = checkIfWordsMatchHyphenated(node, spoilerTerm);
+      if (matchedTerm) {
         if (!node.parentNode || node.parentNode.nodeName === "BODY") {
           // ignore top-most node in DOM to avoid stomping entire DOM
           // see issue #16 for more info
           continue;
         }
-        node.className += " hidden-spoiler";
-        node.textContent = replaceString;
-        blurNearestChildrenImages(node);
+        const originalText = node.textContent;
+        const spoilerVariations = [
+          matchedTerm,
+          pluralize(matchedTerm),
+          ...matchedTerm.split(' ')
+        ];
+        const spoilerRegex = new RegExp(`\\b(?:${spoilerVariations.join('|')})\\b`, "ig");
+        const newText = originalText.replace(spoilerRegex, replaceString);
+        if (originalText !== newText) {
+          node.className += " hidden-spoiler";
+          node.innerHTML = newText;
+          blurNearestChildrenImages(node);
+        }
       }
     }
   }
 }
+
+
 
 function compareForSpoiler(nodeToCheck, spoilerTerm) {
   const regex = new RegExp(spoilerTerm, "i");
@@ -132,7 +213,7 @@ function enableMutationObserver() {
     // fired when a mutation occurs
     // console.log(mutations, observer);
     for (const mutation of mutations) {
-      blockSpoilerContent(mutation.target, cachedTerms, "[text overridden by Spoiled]");
+      blockSpoilerContent(mutation.target, cachedTerms, "***");
     }
   });
 

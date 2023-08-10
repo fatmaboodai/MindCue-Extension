@@ -1,6 +1,5 @@
 var storage = chrome.storage.sync;
 var terms = [];
-var snoozeTime = 1000 * 60 * 10;
 
 function addTermToList () {
   // Save it using the Chrome extension storage API.
@@ -50,7 +49,6 @@ function generateTermsListHTML(terms) {
   if (!terms || terms.length == 0) {
     // If it's empty, just add a placeholder tip for the user
     showEmptyListBlock (true);
-    document.querySelector('#snooze-btn').disabled = true;
   } else {
 
     // Start popuplating the list
@@ -128,39 +126,6 @@ function addTermToListEnter () {
   }
 }
 
-// POP-OVER HELP
-
-function clickHelpPopoverIcon() {
-  var tintedBackground = document.querySelector('#help-popover-background');
-  tintedBackground.addEventListener('click', closePopOver);
-  document.querySelector('#snooze-btn').addEventListener('click', closePopOver);
-  tintedBackground.style.display = "block";
-	document.getElementById("help-popover").style.display = "block";
-}
-
-function closePopOver(divID) {
-  var tintedBackground = document.querySelector('#help-popover-background');
-  tintedBackground.removeEventListener('click', closePopOver);
-  document.querySelector('#snooze-btn').removeEventListener('click', closePopOver);
-  tintedBackground.style.display = "none";
-  document.getElementById("help-popover").style.display = "none";
-}
-
-
-function stripSecondsFromTimeString (timeString) {
-  var splitTime = timeString.split(":");
-  var strippedTime = splitTime[0] + ":" + splitTime[1];
-  var strippedAMPM = splitTime[2].split(" ")[1];
-  return strippedTime + " " + strippedAMPM;
-}
-
-function showBackgroundTint(doShow) {
-  if (doShow) {
-    document.querySelector(".modal-background").style.display = "block";
-  } else {
-    document.querySelector(".modal-background").style.display = "none";
-  }
-}
 
 // MAIN
 
@@ -175,6 +140,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#add-btn').disabled = true;
   document.querySelector('#spoiler-textfield').addEventListener("keyup", addTermToListEnter)
 });
+
+
+
+
+// List of triggers and search
 const checkboxContainer = document.getElementById('checkboxContainer');
 const searchInput = document.getElementById('searchInput');
 
@@ -182,11 +152,10 @@ const wordList = [
   'Child Abuse',
   'War',
   'Drugs',
-  'Self Harm',
-  'Child Abuse',
+  'Self-Harm',
+  'Child-Abuse',
   'War',
   'Drugs',
-  'Self Harm'
     // Add more words to this list
 ];
 
