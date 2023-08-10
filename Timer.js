@@ -1,3 +1,6 @@
+
+
+
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
@@ -111,4 +114,39 @@ function setCircleDasharray() {
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
+}
+const pauseButton = document.getElementById("pauseButton");
+const stopButton = document.getElementById("stopButton");
+
+// Add event listeners to the buttons
+pauseButton.addEventListener("click", pauseTimer);
+stopButton.addEventListener("click", stopTimer);
+
+let isPaused = false;
+
+function pauseTimer() {
+  if (isPaused) {
+    // Resume timer
+    startTimer();
+    isPaused = false;
+    pauseButton.textContent = "Pause";
+  } else {
+    // Pause timer
+    clearInterval(timerInterval);
+    isPaused = true;
+    pauseButton.textContent = "Resume";
+  }
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+  setCircleDasharray();
+  setRemainingPathColor(timeLeft);
+  document.getElementById("base-timer-label").innerHTML = formatTime(
+    timeLeft
+  );
+  isPaused = false;
+  pauseButton.textContent = "Pause";
 }

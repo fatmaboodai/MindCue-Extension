@@ -2,128 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Screen Recording</title>
+    <link rel="stylesheet" type="text/css" href="settingstyle.css">
     <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+        /* Add custom styles for the sharing popup */
+        .custom-sharing-popup {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-#checkboxContainer{
-    max-height: 100px; /* Adjust the desired fixed height */
-    overflow-y: scroll;
-}
-
-.checkbox-item {
-    margin: 5px 0;
-    display: flex;
-    align-items: center;
-}
-
-input[type="checkbox"] {
-    margin: 0 5px 0 0;
-}
-
-
+        /* Style for the sharing popup close button */
+        .custom-sharing-popup .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkbox List Generator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-        
-    <div class="container">
-        <h1>Checkbox List Generator</h1>
-        <input type="text" id="searchInput" placeholder="Search...">
-        <div id="checkboxContainer"></div>
-    </div>
-        
+    <button id="startRecording">Start Recording</button>
+    <video id="recordedVideo" controls></video>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+        const startRecordingButton = document.getElementById("startRecording");
+        const recordedVideoElement = document.getElementById("recordedVideo");
+        let mediaRecorder;
+        let recordedChunks = [];
 
-<script>
-const checkboxContainer = document.getElementById('checkboxContainer');
-const searchInput = document.getElementById('searchInput');
+        startRecordingButton.addEventListener("click", async () => {
+            try {
+                const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 
-const wordList = [
-    'Apple',
-    'Banana',
-    'Cherry',
-    'Grapes',
-    'Orange',
-    'Peach',
-    'Pear',
-    'Strawberry',
-    'Watermelon',
-    'Fatma',
-    'Fatma',
-    'Fatma',
-    // Add more words to this list
-];
+                recordedChunks = [];
+                mediaRecorder = new MediaRecorder(stream);
+                
+                mediaRecorder.ondataavailable = event => {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
 
-generateCheckboxes();
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: "video/webm" });
+                    const url = URL.createObjectURL(blob);
+                    recordedVideoElement.src = url;
+                };
 
-function generateCheckboxes() {
-    for (let i = 0; i < wordList.length; i++) {
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `checkbox${i}`;
+                mediaRecorder.start();
 
-        const label = document.createElement('label');
-        label.textContent = wordList[i];
-        label.htmlFor = `checkbox${i}`;
-
-        const checkboxItem = document.createElement('div');
-        checkboxItem.className = 'checkbox-item';
-        checkboxItem.appendChild(checkbox);
-        checkboxItem.appendChild(label);
-
-        checkboxContainer.appendChild(checkboxItem);
-    }
-}
-
-// Add event listener for search input changes
-searchInput.addEventListener('input', filterCheckboxes);
-
-function filterCheckboxes() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const checkboxes = checkboxContainer.getElementsByClassName('checkbox-item');
-
-    for (let i = 0; i < checkboxes.length; i++) {
-        const label = checkboxes[i].getElementsByTagName('label')[0];
-        const labelValue = label.textContent.toLowerCase();
-
-        if (labelValue.includes(searchTerm)) {
-            checkboxes[i].style.display = 'flex';
-        } else {
-            checkboxes[i].style.display = 'none';
-        }
-    }
-}
-
-
-</script>
+                startRecordingButton.disabled = true;
+            } catch (error) {
+                console.error("Error starting screen recording:", error);
+            }
+        });
+    </script>
 </body>
 </html>
