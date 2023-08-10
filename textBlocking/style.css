@@ -110,8 +110,8 @@ margin: 0;
 padding: 5px;
 }
 #spoiler-strings{
-  min-height: 1vh;
-  margin-bottom: 10px;
+  min-height: 1.5vh;
+  margin-bottom: 5px;
   margin-right: 5%;
   margin-left: 5%;
 }
@@ -167,8 +167,8 @@ min-height: 25vh;
   /* div that contains the ul */
  #spoiler-list-container{
   box-sizing: border-box;
-  height: 75px;
-  max-height: 75px;
+  height: 76px;
+  max-height: 76px;
   }
 
 .spoiler-list{
@@ -176,7 +176,7 @@ min-height: 25vh;
   margin: auto;
   margin-left: 4%;
   overflow-y: scroll;
-  max-height: 100px;
+  max-height: 76px;
   width: 235px;
 
 }
@@ -201,7 +201,9 @@ min-height: 25vh;
 }
 
 #checkboxContainer{
-  max-height: 100px; /* Adjust the desired fixed height */
+ /* Adjust the desired fixed height */
+  height: 76px;
+  max-height: 76px;
   overflow-y: scroll;
   width: 235px;
   margin-left: 5%;
