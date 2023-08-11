@@ -10,16 +10,25 @@
     },
     "content_scripts": [
         {
-          "matches": ["http://*/*", "https://*/*"],
+          "matches": ["<all_urls>"],
           "js": ["textBlocking/content_script.js"],
           "run_at": "document_end"
+        },
+        {
+          "matches": ["<all_urls>"],
+          "js": ["testing.js"],
+          "run_at": "document_start"
         }
       ],
+      "background": {
+        "service_worker": "background.js"
+      },
      "permissions": [
        "declarativeContent",
        "storage",
        "tabs",
-       "activeTab"
+       "activeTab",
+       "windows",
+       "scripting"
      ]
-    
 }
