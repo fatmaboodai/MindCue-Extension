@@ -176,7 +176,7 @@ min-height: 25vh;
   margin: auto;
   margin-left: 4%;
   overflow-y: scroll;
-  max-height: 76px;
+  max-height: 75px;
   width: 235px;
 
 }
@@ -202,8 +202,8 @@ min-height: 25vh;
 
 #checkboxContainer{
  /* Adjust the desired fixed height */
-  height: 76px;
-  max-height: 76px;
+  height: 78px;
+  max-height: 78px;
   overflow-y: scroll;
   width: 235px;
   margin-left: 5%;
@@ -224,7 +224,7 @@ input[type="checkbox"] {
   border: none;
   display: flex;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 4.5%;
   
 }
 .checkbox-item label{
