@@ -36,6 +36,3 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       return true; // Signal async response
     }
   });
-
-
-
