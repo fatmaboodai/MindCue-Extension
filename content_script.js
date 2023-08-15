@@ -10,25 +10,29 @@ const elementsWithTextContentToSearch = "a, p, h1, h2, h3, h4, h5, h6";
 const containerElements = "span, div, li, th, td, dt, dd";
 
 
-// Every time a page is loaded, check our spoil terms and block,
-// after making sure settings allow blocking on this page.
-chrome.storage.sync.get(null, (result) => {
-  // Don't manipulate page if blocking is snoozed
-  if (result.isSnoozeOn && !isSnoozeTimeUp(result.timeToUnsnooze)) {
-    return;
-  }
-  // Don't manipulate page if user hasn't entered any terms
-  if (!result.spoilerterms) {
-    return;
-  }
+let isTextBlockingEnabled = true
+
+// Check if text blocking should be enabled
+if (isTextBlockingEnabled) {
+  // Every time a page is loaded, check our spoil terms and block,
+  // after making sure settings allow blocking on this page.
+  chrome.storage.sync.get(null, (result) => {
+    // Don't manipulate the page if blocking is snoozed
+    if (result.isSnoozeOn && !isSnoozeTimeUp(result.timeToUnsnooze)) {
+      return;
+    }
+    // Don't manipulate the page if the user hasn't entered any terms
+    if (!result.spoilerterms) {
+      return;
+    }
+
     enableMutationObserver();
     cachedTerms = result.spoilerterms;
     blockSpoilerContent(document, result.spoilerterms, "***");
-  
-return;
-});
 
 
+  });
+}
 
 function blockSpoilerContent(rootNode, spoilerTerms, blockText) {
   // Search innerHTML elements first
