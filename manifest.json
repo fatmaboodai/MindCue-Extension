@@ -6,7 +6,12 @@
     "author": "Novas",
     "action": {
         "default_popup": "index.html",
-        "default_title": "MindCue Extension"
+        "default_title": "MindCue Extension",
+        "default_icon": {
+          "16": "images/Brainstorm.png",
+          "48": "images/Brainstorm.png",
+          "128": "images/Brainstorm.png"
+        }
     },
     "content_scripts": [
         {
@@ -15,12 +20,32 @@
           "run_at": "document_end"
         }
       ],
+  "background.service_worker": {
+    "scripts": [
+      "RecordRTC/MediaStreamRecorder.js",
+      "RecordRTC/MultiStreamRecorder.js",
+      "RecordRTC/MultiStreamsMixer.js",
+      "RecordRTC/StereoAudioRecorder.js",
+      "RecordRTC/DiskStorage.js",
+      "RecordRTC/EBML.js"
+  ],
+    "persistent": false
+  },
      "permissions": [
        "declarativeContent",
        "storage",
        "tabs",
        "activeTab",
        "windows",
-       "scripting"
-     ]
+       "scripting",
+       "desktopCapture", "audioCapture", "videoCapture",
+       "downloads"
+     ],
+     "web_accessible_resources": [
+      {
+          "resources": ["popup.html", "Breaktimer.html", "styles.css"],
+          "matches": ["<all_urls>"]
+      }
+  ]
+  
 }
