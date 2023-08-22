@@ -1,4 +1,3 @@
-
 var styleElement = document.createElement('style');
 styleElement.id = 'remove-scroll-style';
 styleElement.textContent =

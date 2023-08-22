@@ -1,17 +1,24 @@
 {
     "name": "MindCue Extension",
     "version": "1.0.0",
-    "description": "This extension is a prototype for a system that helps filter out people's triggers online",
+    "description": "This extension is for a system that helps filter out people's triggers online",
     "manifest_version": 3,
     "author": "Novas",
     "action": {
-        "default_popup": "index.html",
+        "default_popup": "popup.html",
         "default_title": "MindCue Extension",
         "default_icon": {
           "16": "images/Brainstorm.png",
+         "32": "images/Brainstorm.png",
           "48": "images/Brainstorm.png",
           "128": "images/Brainstorm.png"
         }
+    },
+    "icons": {
+      "16": "images/Brainstorm.png",
+      "32": "images/Brainstorm.png",
+      "48": "images/Brainstorm.png",
+      "128": "images/Brainstorm.png"
     },
     "content_scripts": [
         {
