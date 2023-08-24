@@ -1,9 +1,4 @@
 var styleElement = document.createElement('style');
-styleElement.id = 'remove-scroll-style';
-styleElement.textContent =
-    'html::-webkit-scrollbar{display:none !important}' +
-    'body::-webkit-scrollbar{display:none !important}';
-document.getElementsByTagName('body')[0].appendChild(styleElement);
 let cachedTerms = [];
 const elementsWithTextContentToSearch = "a, p, h1, h2, h3, h4, h5, h6";
 const containerElements = "span, div, li, th, td, dt, dd";
@@ -224,3 +219,16 @@ function enableMutationObserver() {
   // disconnecting likely won't work since we need to continuously watch
   // observer.disconnect();
 }
+
+
+// content.js
+const check = document.querySelector("#setting1")
+// Send a message to the background script
+chrome.runtime.sendMessage(check.checked, function(response) {
+  console.log("Received response from background script:", response);
+});
+
+
+
+
+

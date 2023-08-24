@@ -147,3 +147,5 @@ function stopTimer() {
   isPaused = false;
   pauseButton.textContent = "Pause";
 }
+
+
