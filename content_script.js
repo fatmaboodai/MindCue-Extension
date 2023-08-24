@@ -229,6 +229,9 @@ chrome.runtime.sendMessage(check.checked, function(response) {
 });
 
 
-
-
-
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.message === "Hello from the popup!") {
+    // Handle the message from the popup here
+    console.log("Message received in content script");
+  }
+});
