@@ -20,24 +20,18 @@
       "48": "images/Brainstorm.png",
       "128": "images/Brainstorm.png"
     },
+    "background.service_worker": {
+      "scripts": [
+        "background.js"
+    ]
+    },
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content_script.js"],
+          "js": ["content_script.js" ,"jquery-3.7.0.min.js"],
           "run_at": "document_end"
         }
       ],
-  "background.service_worker": {
-    "scripts": [
-      "RecordRTC/MediaStreamRecorder.js",
-      "RecordRTC/MultiStreamRecorder.js",
-      "RecordRTC/MultiStreamsMixer.js",
-      "RecordRTC/StereoAudioRecorder.js",
-      "RecordRTC/DiskStorage.js",
-      "RecordRTC/EBML.js"
-  ],
-    "persistent": false
-  },
      "permissions": [
        "declarativeContent",
        "storage",
