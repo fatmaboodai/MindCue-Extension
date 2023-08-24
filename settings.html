@@ -20,7 +20,7 @@
     <div id="formdiv">
     <h2>General Settings</h2>
     <form id="mainform">
-        <input type="checkbox" id="fixVideoSeekingIssues" name="setting1" value="Blackout">
+        <input type="checkbox" id="setting1" name="setting1" value="Blackout">
         <label for="setting1">Block triggering words</label>
 
         <div style="height: 20px;">
@@ -43,15 +43,18 @@
     <br>
     <br>
     </div>
-    <button id="startRecording">Start</button>
+    <!-- <button id="startRecording">Start</button>
+     -->
+     <button id="startRecording">Start</button>
 
     <br>
-    <br>
+    <br>                           
     <div style="margin-top: 31.5%;" >
         <a href="./index.html" id="logout">Logout</a>
     </div>
     <br>
     <script src="settings.js"></script>
-    <script src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./content_script.js"></script>
+  
 </body>
 </html>

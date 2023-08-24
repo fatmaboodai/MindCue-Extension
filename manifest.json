@@ -20,6 +20,9 @@
       "48": "images/Brainstorm.png",
       "128": "images/Brainstorm.png"
     },
+    "background": {
+      "service_worker": "background.js"
+    },
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
@@ -27,17 +30,6 @@
           "run_at": "document_end"
         }
       ],
-  "background.service_worker": {
-    "scripts": [
-      "RecordRTC/MediaStreamRecorder.js",
-      "RecordRTC/MultiStreamRecorder.js",
-      "RecordRTC/MultiStreamsMixer.js",
-      "RecordRTC/StereoAudioRecorder.js",
-      "RecordRTC/DiskStorage.js",
-      "RecordRTC/EBML.js"
-  ],
-    "persistent": false
-  },
      "permissions": [
        "declarativeContent",
        "storage",
@@ -48,11 +40,15 @@
        "desktopCapture", "audioCapture", "videoCapture",
        "downloads"
      ],
-     "web_accessible_resources": [
-      {
-          "resources": ["popup.html", "Breaktimer.html", "styles.css"],
-          "matches": ["<all_urls>"]
-      }
+
+  "options_ui": {
+    "page": "settings.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html"],
+      "matches": ["<all_urls>"]
+    }
   ]
   
 }
