@@ -2,7 +2,6 @@
     "name": "MindCue Extension",
     "version": "1.0.0",
     "description": "This extension is for a system that helps filter out people's triggers online",
-    "manifest_version": 3,
     "author": "Novas",
     "action": {
         "default_popup": "popup.html",
@@ -35,17 +34,19 @@
        "windows",
        "scripting",
        "desktopCapture", "audioCapture", "videoCapture",
-       "downloads"
+       "downloads",
+       "sidePanel", "contextMenus"
      ],
 
+     "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+S",
+          "mac": "MacCtrl+Shift+S"
+        }}},
   "options_ui": {
     "page": "settings.html"
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["popup.html"],
-      "matches": ["<all_urls>"]
-    }
-  ]
-  
+  "host_permissions":  ["<all_urls>"],
+  "manifest_version": 3
 }
