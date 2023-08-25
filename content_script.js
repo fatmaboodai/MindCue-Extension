@@ -221,17 +221,20 @@ function enableMutationObserver() {
 }
 
 
-// content.js
-const check = document.querySelector("#setting1")
-// Send a message to the background script
-chrome.runtime.sendMessage(check.checked, function(response) {
-  console.log("Received response from background script:", response);
-});
+
+// side bar section 
+const newDiv = document.createElement("div");
+
+// and give it some content
+const newContent = document.createTextNode("heelloo bieeechhhhhhh");
+
+// add the text node to the newly created div
+newDiv.appendChild(newContent);
+newDiv.classList.add("test")
 
 
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.message === "Hello from the popup!") {
-    // Handle the message from the popup here
-    console.log("Message received in content script");
-  }
-});
+document.body.appendChild(newDiv)
+
+
+
+ 
