@@ -222,19 +222,16 @@ function enableMutationObserver() {
 
 
 
-// side bar section 
-const newDiv = document.createElement("div");
-
-// and give it some content
-const newContent = document.createTextNode("heelloo bieeechhhhhhh");
-
-// add the text node to the newly created div
-newDiv.appendChild(newContent);
-newDiv.classList.add("test")
-
-
-document.body.appendChild(newDiv)
-
-
 
  
+// reciving a message from the popup 
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message);
+  console.log(sender);
+
+  // Send a response asynchronously
+  sendResponse("hello from the other sideeeee i'm backgrounddd");
+});
+
+
+

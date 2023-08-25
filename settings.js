@@ -1,61 +1,57 @@
 
-// with the tab select
+// // with the tab select
 
 
-const startRecordingButton = document.getElementById("startRecording");
-const recordedVideoElement = document.getElementById("recordedVideo");
-let mediaRecorder;
-let recordedChunks = [];
+// const startRecordingButton = document.getElementById("startRecording");
+// const recordedVideoElement = document.getElementById("recordedVideo");
+// let mediaRecorder;
+// let recordedChunks = [];
 
-async function startRecording() {
-    try {
-        const constraints = {
-            video: {
-                displaySurface: 'browser',
-                logicalSurface: false,
-                mediaSource: 'window'
-            },
-            audio: false
-        };
+// async function startRecording() {
+//     try {
+//         const constraints = {
+//             video: {
+//                 displaySurface: 'browser',
+//                 logicalSurface: false,
+//                 mediaSource: 'window'
+//             },
+//             audio: false
+//         };
 
-        const stream = await navigator.mediaDevices.getDisplayMedia(constraints);
+//         const stream = await navigator.mediaDevices.getDisplayMedia(constraints);
 
-        mediaRecorder = new MediaRecorder(stream);
+//         mediaRecorder = new MediaRecorder(stream);
         
-        mediaRecorder.ondataavailable = (event) => {
-            if (event.data.size > 0) {
-                recordedChunks.push(event.data);
-            }
-        };
+//         mediaRecorder.ondataavailable = (event) => {
+//             if (event.data.size > 0) {
+//                 recordedChunks.push(event.data);
+//             }
+//         };
 
-        mediaRecorder.onstop = () => {
-            const recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
-            recordedVideoElement.src = URL.createObjectURL(recordedBlob);
-        };
+//         mediaRecorder.onstop = () => {
+//             const recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
+//             recordedVideoElement.src = URL.createObjectURL(recordedBlob);
+//         };
 
-        mediaRecorder.start();
-        startRecordingButton.disabled = true;
-    } catch (error) {
-        console.error("Error starting recording:", error);
-    }
-}
+//         mediaRecorder.start();
+//         startRecordingButton.disabled = true;
+//     } catch (error) {
+//         console.error("Error starting recording:", error);
+//     }
+// }
 
-startRecordingButton.addEventListener("click", startRecording);
+// startRecordingButton.addEventListener("click", startRecording);
 
 
-const openRecorder = async () => {
-    // Get the URL of the recorder page from the extension's resources
-    const recorderUrl = chrome.runtime.getURL("recorder.html");
+// const openRecorder = async () => {
+//     // Get the URL of the recorder page from the extension's resources
+//     const recorderUrl = chrome.runtime.getURL("recorder.html");
     
-    // Open the recorder page in a new tab
-    const tab = await chrome.tabs.create({ url: recorderUrl });
-};
+//     // Open the recorder page in a new tab
+//     const tab = await chrome.tabs.create({ url: recorderUrl });
+// };
 
-startRecordingButton.addEventListener("click", openRecorder);
-
-
-
-
+// startRecordingButton.addEventListener("click", openRecorder);
 
 
 
@@ -93,6 +89,56 @@ startRecordingButton.addEventListener("click", openRecorder);
 //         video.src = url;
 //     });
 // };
+
+
+
+
+// let v = document.getElementById("startRecording")
+
+// v.addEventListener("click", changecolor);
+
+// function changecolor(){
+// // side bar section 
+// const newDiv = document.createElement("div");
+
+// // and give it some content
+// const newContent = document.createTextNode("heelloo bieeechhhhhhh");
+
+// // add the text node to the newly created div
+// newDiv.appendChild(newContent);
+// newDiv.classList.add("test")
+
+// document.body.appendChild(newDiv)
+
+// }
+
+
+
+// let v = document.getElementById("startRecording");
+
+// v.addEventListener("click", changecolor);
+
+// function changecolor() {
+//     // Create a new div element
+//     const newDiv = document.createElement("div");
+//     // Set some content for the div
+//     const newContent = document.createTextNode("heelloo bieeechhhhhhh");
+//     newDiv.appendChild(newContent);
+//     newDiv.classList.add("test");
+//     document.body.appendChild(newDiv)
+// }
+
+
+
+
+    // Create a new div element
+    const newDiv = document.createElement("div");
+    // Set some content for the div
+    const newContent = document.createTextNode("heelloo bieeechhhhhhh");
+    newDiv.appendChild(newContent);
+    newDiv.classList.add("test");
+    document.body.appendChild(newDiv)
+
 
 
 
