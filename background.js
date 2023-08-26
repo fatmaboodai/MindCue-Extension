@@ -2,10 +2,10 @@ chrome.tabs.onActivated.addListener((tab) => {
     console.log(tab);
   
     chrome.tabs.get(tab.tabId, (currentTabData) => {
-      if (currentTabData.url === "https://www.google.com/") {
+      if (currentTabData.url !== "https://www.google.com/") {
         chrome.scripting.executeScript({
           target: { tabId: currentTabData.id },
-          files: ["content_script.js","settings.js"]
+          files: ["content_script.js"]
         });
         setTimeout(()=>{
           chrome.tabs.sendMessage(

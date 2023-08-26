@@ -131,20 +131,20 @@
 
 
 
-    // Create a new div element
-    const newDiv = document.createElement("div");
-    // Set some content for the div
-    const newContent = document.createTextNode("heelloo bieeechhhhhhh");
-    newDiv.appendChild(newContent);
-    newDiv.classList.add("test");
-    document.body.appendChild(newDiv)
+// // Create a new div element
+//     const newDiv = document.createElement("div");
+//     // Set some content for the div
+//     const newContent = document.createTextNode("heelloo bieeechhhhhhh");
+//     newDiv.appendChild(newContent);
+//     newDiv.classList.add("test");
+//     document.body.appendChild(newDiv)
 
 
-
-
-
-
-
+// const div1 = document.createElement("div");
+// div1.classList.add("test1")
+// const newContent = document.createTextNode("inside");
+// div1.appendChild(newContent)
+// document.body.appendChild(div1)
 
 
 

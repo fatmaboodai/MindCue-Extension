@@ -26,7 +26,7 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content_script.css", "settings.js"],
+          "js": ["content_script.js"],
           "css":["content_script.css"],
           "run_at": "document_end"
         }
@@ -46,5 +46,4 @@
     "page": "settings.html"
   },
   "host_permissions":  ["<all_urls>"],
-  "manifest_version": 3
-}
+  "manifest_version": 3}

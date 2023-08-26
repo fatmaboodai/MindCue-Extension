@@ -235,3 +235,81 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
 
+// // Create a new div element
+//     const newDiv = document.createElement("div");
+//     // Set some content for the div
+//     const newContent = document.createTextNode("outside");
+//     newDiv.appendChild(newContent);
+//     newDiv.classList.add("test");
+//     document.body.appendChild(newDiv)
+
+
+
+
+// const button = document.createElement("button")
+// button.setAttribute("id","test")
+// button.innerHTML= "Click me"
+// button.addEventListener("click",toggle)
+
+// // function sendMessage() {
+// //     const newDiv = document.createElement("div");
+// //     // Set some content for the div
+// //     const newContent = document.createTextNode("outside");
+// //     newDiv.appendChild(newContent);
+// //     newDiv.classList.add("test");
+// //     document.body.appendChild(newDiv)
+// // }
+
+// function toggle() {
+// const t = document.querySelector(".test")
+// t.classList.toggle("test2")
+// }
+
+// document.body.appendChild(button)
+
+
+
+const navBar = document.createElement("nav")
+navBar.setAttribute("role","navigation")
+
+
+const div = document.createElement("div")
+div.setAttribute("id","menuToggle")
+
+
+const input = document.createElement("input")
+input.setAttribute("type","checkbox")
+
+const span1 = document.createElement("span")
+const span2 = document.createElement("span")
+const span3 = document.createElement("span")
+
+
+
+div.appendChild(input)
+div.appendChild(span1)
+div.appendChild(span2)
+div.appendChild(span3)
+
+
+const ul = document.createElement("ul")
+ul.setAttribute("id","menu")
+
+
+
+
+const link = document.createElement("a")
+const child = document.createElement("li")
+child.innerHTML = "HELLO MINDCUE"
+
+link.appendChild(child)
+
+ul.appendChild(link)
+
+div.appendChild(ul)
+
+
+navBar.appendChild(div)
+
+
+document.body.appendChild(navBar)
