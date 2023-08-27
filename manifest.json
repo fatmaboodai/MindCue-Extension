@@ -14,7 +14,7 @@
         }
     },
     "web_accessible_resources": [{ 
-      "resources": ["https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"],
+      "resources": ["chrome-extension://bedbkdaioochjoijagmldpkmfdmgcchn/images/coverBackground.png"],
       "matches": ["<all_urls>"]
     }],
     "icons": {

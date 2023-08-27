@@ -235,46 +235,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
 
-// // Create a new div element
-//     const newDiv = document.createElement("div");
-//     // Set some content for the div
-//     const newContent = document.createTextNode("outside");
-//     newDiv.appendChild(newContent);
-//     newDiv.classList.add("test");
-//     document.body.appendChild(newDiv)
 
 
 
 
-// const button = document.createElement("button")
-// button.setAttribute("id","test")
-// button.innerHTML= "Click me"
-// button.addEventListener("click",toggle)
+// chrome.runtime.onMessage.addListener((message,sender)=>{
 
-// // function sendMessage() {
-// //     const newDiv = document.createElement("div");
-// //     // Set some content for the div
-// //     const newContent = document.createTextNode("outside");
-// //     newDiv.appendChild(newContent);
-// //     newDiv.classList.add("test");
-// //     document.body.appendChild(newDiv)
-// // }
-
-// function toggle() {
-// const t = document.querySelector(".test")
-// t.classList.toggle("test2")
-// }
-
-// document.body.appendChild(button)
-
-
-
-
-
-
-chrome.runtime.onMessage.addListener((message,sender)=>{
-
-  if (message.from === "settings" && message.query === "inject_side_bar"){
+//   if (message.from === "settings" && message.query === "inject_side_bar"){
 
 // inject the timer page 
 // my container
@@ -285,11 +252,14 @@ container.setAttribute("id","container")
 
 // the cover image //
 const CoverDiv = document.createElement("div")
-CoverDiv.setAttribute("class","cover")
-let CoverImage = document.createElement("img")
-CoverImage.src = chrome.runtime.getURL("/images/coverBackground.png.png")
+CoverDiv.setAttribute("class","cover") 
 
-CoverDiv.appendChild(CoverImage)
+// let CoverImage = document.createElement("img")
+// CoverImage.src = "chrome-extension://bedbkdaioochjoijagmldpkmfdmgcchn/images/coverBackground.png"
+// CoverDiv.appendChild(CoverImage)
+// CoverDiv.innerHTML="<img src='chrome-extension://bedbkdaioochjoijagmldpkmfdmgcchn/images/coverBackground.png'/>"
+
+
 
 // append it to main container
 container.appendChild(CoverDiv)
@@ -300,7 +270,15 @@ container.appendChild(CoverDiv)
 // the back arrow //
 const BackArrow = document.createElement("div")
 BackArrow.setAttribute("id","backArrow")
-// here we will make it minimize the tab for later
+
+BackArrow.innerHTML=`
+<a id ="minimize">
+<svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#a38574}</style><path d="M32 416c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/></svg>
+</a>
+`
+container.appendChild(BackArrow)
+
+
 
 ////////////////////////////
 
@@ -332,7 +310,6 @@ BreakH2.appendChild(InSessionPar)
 HeaderDiv.appendChild(BreakH2)
 
 MainDiv.appendChild(HeaderDiv)
-
 
 // append it to main container
 container.appendChild(MainDiv)
@@ -546,10 +523,28 @@ function stopTimer() {
 
 
 ////////////////
+let min = document.getElementById("minimize")
+min.addEventListener("click",minmizeSideBar)
 
+function minmizeSideBar() {
+////////////////
+let min = document.getElementById("minimize")
+min.addEventListener("click",minmizeSideBar)
+
+function minmizeSideBar() {
+  var x = document.getElementById("container");
+  if (x.style.width === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
-})
+  }
 
+
+}
+// }
+//   }
+// })
 
 
 
