@@ -13,8 +13,10 @@ background-color: #F9F9F9;
 align-items: center;
 text-align: center;
 overflow: hidden;
-width:284px;
+width:285px;
 }
+
+
 #mainform {
     align-items: center;
     display: flex;
@@ -51,7 +53,7 @@ width:284px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   margin-bottom: 1.5%;
-  background-color: #DC989A;
+  /* background-color: #DC989A; */
 }
 #Header h2{
 color: #DC989A;
@@ -220,3 +222,84 @@ margin-bottom: 33.5%;
   width:10px;
   
   }
+
+  .sidebar {
+    height: 100%;
+    width: 85px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    transition: 0.5s;
+    overflow-x: hidden;
+    padding-top: 60px;
+    white-space: nowrap;
+  }
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  main .sidebar {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .material-icons,
+  .icon-text {
+    vertical-align: middle;
+  }
+  
+  .material-icons {
+    padding-bottom: 3px;
+    margin-right: 30px;
+  }
+  
+  #main {
+    padding: 16px;
+    margin-left: 85px;
+    transition: margin-left 0.5s;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidebar {
+      padding-top: 15px;
+    }
+    .sidebar a {
+      font-size: 18px;
+    }
+  }
+  /* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  color: red;
+}

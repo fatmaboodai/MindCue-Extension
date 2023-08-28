@@ -14,7 +14,7 @@
         }
     },
     "web_accessible_resources": [{ 
-      "resources": ["chrome-extension://bedbkdaioochjoijagmldpkmfdmgcchn/images/coverBackground.png"],
+      "resources": ["images/coverBackground.png"],
       "matches": ["<all_urls>"]
     }],
     "icons": {
