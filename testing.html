@@ -1,46 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-      
-      .side-menu-wrapper {
-  width: 200px;
-  position: relative;
-  .minimized {
-    width: 100px;
-    .sidemenu:hover {
-      width: 200px;
-    }
-  }
-  .sidemenu {
-    transition: all .3s ease;
-    width: 100%;
-  }
-  button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<style>
+
+.sidebar {
+  height: 80vh;
+  width: 85px;
+  position: fixed;
+  z-index: 5000;
+  top: 5%;
+  right: 0;
+  transition: 0.5s;
+  overflow-x: hidden;
+  padding-top: 60px;
+z-index:3000;
+border-radius: 10px;
+background-color: #F9F9F9;
+white-space: nowrap;
+  border-radius: 10px
+
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+}
+
+#material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  color: #A38574;
+}
+
+#material-icons {
+  padding-bottom: 3px;
+  margin-right: 30px;
+}
+
+#test{
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    align-items: center;
+    width: 284px;
+    height: 600px;
+    text-align: center;
+    margin:auto;
+    overflow: hidden;
+  margin-left:85px
+  }
+
+#mainform {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+  }
+
+#logout {
+    color: #DC989A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+  
+  }
+
+ .cover img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 1.5%;
+}
+
+#Header h2{
+color: #DC989A;
+font-family: 'Poppins', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+color: #80B3B7;
+}
+
+
+#Header p{
+    display: inline;
+    color: #DC989A;
+
+}
+
+#box{
+width: 228px;
+height: 180px;
+border-radius: 10px;
+border: 3px solid #FAE3E4;
+background: rgba(229, 239, 240, 0.00);
+
+}
+
+h2{
+    color: #DC989A;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    color: #638184;
+    }
+
+#backArrow{
+        top: 2%;
+        position: fixed;
+        left: 4%;
+      }
+#modifyTimer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 228px;
+    box-sizing: border-box;
+     margin: auto;
+    margin-top: 5px;
+font-weight: 200;
+
+
+}
+
+.ModifyButtons{
+border-radius: 10px;
+border: 2px solid #DC989A;
+width: 110px;
+padding: 12px;
+background: linear-gradient(7deg, rgba(243, 232, 226, 0.00) 0%, rgba(250, 227, 228, 0.00) 100%);
+color: #DC989A;
+font-family: 'Poppins', sans-serif;
+font-size: 14px;
+font-style: normal;
+line-height: normal;
+margin-bottom: 33.5%;
+}
+.ModifyButtons:hover {
+    background-color: #DC989A;
+    color: white;
+    border: 2px #F9F9F9 solid;
+    text-decoration: none;
+  }
+  
+.ModifyButtons:active {
+    background-color: #DC989A;
+    color: white;
+    border: 2px #F9F9F9 solid;
+    text-decoration: none;
+  }
+
+  .base-timer {
+    position: relative;
+    width:104px;
+  height:104px;
+  margin: auto;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: #C2DCDE;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: #80B3B7;
+  }
+  
+  .base-timer__path-remaining.orange {
+      color: #80B3B7;
+  
+  }
+  
+  .base-timer__path-remaining.red {
+      color: #80B3B7;
+  
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width:104px;
+    height:104px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #DC989A;
+    font-style: normal;
+  line-height: normal;
+  font-family: 'Bebas Neue', sans-serif;
+  margin-top: 4%;
+  }
+
+</style>
 <body>
-  <div class="side-menu-wrapper">
-    <div class="sidemenu">
-      <nav>
-        <ul>
-          <li>menu item</li>
-          <li>menu item</li>
-          <li>menu item</li>
-        </ul>
-      </nav>
-    </div>
-    <button>Expand or Minimize</button>
+
+<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <a href="#"><span id="material-icons">
+      arrow_circle_right
+      </span></a>
+  <div id="test">
+    <div class="cover">
+      <img src="images/coverBackground.png" alt="">
   </div>
 
+  <div id="mainform">
+      <div id="Header">
+          <h2>Break <p>in Session</p></h2>
+      </div>
+<div id="box">
+  <h2>
+      Time Remaining
+  </h2>
+  <div id="app">
+  </div>
 
+</div>
+
+  </div>
+       <div id="modifyTimer">
+      <button class="ModifyButtons" type="submit">Pause</button>
+      <button class="ModifyButtons" type="submit">Stop</button>
+       </div>
+    </div>
+
+<div id="main">
+  <h2</h2>
+</div>
+
+
+<script>
+  var mini = true;
+
+function toggleSidebar() {
+  if (mini) {
+    console.log("opening sidebar");
+    document.getElementById("mySidebar").style.width = "400px";
+    document.getElementById("main").style.marginLeft = "250px";
+    this.mini = false;
+  } else {
+    console.log("closing sidebar");
+    document.getElementById("mySidebar").style.width = "85px";
+    this.mini = true;
+  }
+}
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+
+const COLOR_CODES = {
+  info: {
+    color: "green"
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD
+  }
+};
+
+const TIME_LIMIT = 600; // 1 hour and 1 minute in seconds
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
+
+document.getElementById("app").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+  TIME_LIMIT
+)}</span>
+
+</div>
+`;
+
+startTimer();
+
+function onTimesUp() {
+  clearInterval(timerInterval);
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    timeLeft = TIME_LIMIT - timePassed;
+    document.getElementById("base-timer-label").innerHTML = formatTime(
+      timeLeft
+    );
+    setCircleDasharray();
+    setRemainingPathColor(timeLeft);
+
+    if (timeLeft === 0) {
+      onTimesUp();
+    }
+  }, 1000);
+}
+
+
+function formatTime(time) {
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = time % 60;
+
+  const formattedTime = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  return formattedTime;
+}
+
+
+function setRemainingPathColor(timeLeft) {
+  const { alert, warning, info } = COLOR_CODES;
+  if (timeLeft <= alert.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(alert.color);
+  } else if (timeLeft <= warning.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(info.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(warning.color);
+  }
+}
+
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction;
+}
+
+function setCircleDasharray() {
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} ${FULL_DASH_ARRAY}`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
+}
+const pauseButton = document.getElementById("pauseButton");
+const stopButton = document.getElementById("stopButton");
+
+// Add event listeners to the buttons
+pauseButton.addEventListener("click", pauseTimer);
+stopButton.addEventListener("click", stopTimer);
+
+let isPaused = false;
+
+function pauseTimer() {
+  if (isPaused) {
+    // Resume timer
+    startTimer();
+    isPaused = false;
+    pauseButton.textContent = "Pause";
+  } else {
+    // Pause timer
+    clearInterval(timerInterval);
+    isPaused = true;
+    pauseButton.textContent = "Resume";
+  }
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timePassed = 0;
+  timeLeft = TIME_LIMIT;
+  setCircleDasharray();
+  setRemainingPathColor(timeLeft);
+  document.getElementById("base-timer-label").innerHTML = formatTime(
+    timeLeft
+  );
+  isPaused = false;
+  pauseButton.textContent = "Pause";
+}
+
+
+
+</script>
 </body>
 </html>

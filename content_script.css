@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 #container{
-height: 70vh;
+height: 100vh;
 position: fixed;
-top: 5%;
+top: 0;
 right: 0;
 z-index:3000;
 border-radius: 10px;
@@ -13,9 +13,72 @@ background-color: #F9F9F9;
 align-items: center;
 text-align: center;
 overflow: hidden;
+width:85px;
+white-space: nowrap;
+}
+#container:hover{
 width:285px;
+
 }
 
+.sidebar {
+  height: 80vh;
+  width: 85px;
+  position: fixed;
+  z-index: 5000;
+  top: 5%;
+  right: 0;
+  transition: 0.5s;
+  overflow-x: hidden;
+  padding-top: 60px;
+z-index:3000;
+border-radius: 10px;
+background-color: #F9F9F9;
+white-space: nowrap;
+  border-radius: 10px
+
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+}
+
+#material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  color: #A38574;
+}
+
+#material-icons {
+  padding-bottom: 3px;
+  margin-right: 30px;
+}
+
+#test{
+    border-radius: 10px;
+    background-color: #F9F9F9;
+    align-items: center;
+    width: 284px;
+    height: 600px;
+    text-align: center;
+    margin:auto;
+    overflow: hidden;
+  margin-left:85px
+  }
 
 #mainform {
     align-items: center;
@@ -37,24 +100,15 @@ width:285px;
   
   }
 
-  .cover img {
+ .cover img {
   width: 100%;
   height: 120px;
   object-fit: cover;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   margin-bottom: 1.5%;
-
-  }
-.cover{
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 1.5%;
-  /* background-color: #DC989A; */
 }
+
 #Header h2{
 color: #DC989A;
 font-family: 'Poppins', sans-serif;
@@ -78,11 +132,10 @@ height: 180px;
 border-radius: 10px;
 border: 3px solid #FAE3E4;
 background: rgba(229, 239, 240, 0.00);
-margin: auto;
-align-items: center;
+
 }
 
-#h2{
+h2{
     color: #DC989A;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -90,20 +143,7 @@ align-items: center;
     font-weight: 200;
     line-height: normal;
     color: #638184;
-    margin-top: 5%;
     }
-
-#backArrow{
-        top: 0.3%;
-        position: absolute;
-        z-index: 3001;
-        left: 5%
-}
-#backArrow svg{
-  height: 35px;
-  width: 20px;
-  position:relative;
-}
 
 #modifyTimer{
     display: flex;
@@ -112,8 +152,9 @@ align-items: center;
     width: 228px;
     box-sizing: border-box;
      margin: auto;
-    margin-top: 5%;
-    font-weight: 200;
+    margin-top: 5px;
+font-weight: 200;
+
 
 }
 
@@ -149,7 +190,6 @@ margin-bottom: 33.5%;
     width:104px;
   height:104px;
   margin: auto;
-  margin-top: 8%;
   }
   
   .base-timer__svg {
@@ -189,7 +229,7 @@ margin-bottom: 33.5%;
       color: #80B3B7;
   
   }
-
+  
   .base-timer__label {
     position: absolute;
     width:104px;
@@ -207,79 +247,6 @@ margin-bottom: 33.5%;
   }
 
 
-  
-.containerMinimize{
-  height: 70vh;
-  position: fixed;
-  top: 5%;
-  right: 0;
-  z-index:3000;
-  border-radius: 10px;
-  background-color: #F9F9F9;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  width:10px;
-  
-  }
-
-  .sidebar {
-    height: 100%;
-    width: 85px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    transition: 0.5s;
-    overflow-x: hidden;
-    padding-top: 60px;
-    white-space: nowrap;
-  }
-  .sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-  
-  main .sidebar {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  .material-icons,
-  .icon-text {
-    vertical-align: middle;
-  }
-  
-  .material-icons {
-    padding-bottom: 3px;
-    margin-right: 30px;
-  }
-  
-  #main {
-    padding: 16px;
-    margin-left: 85px;
-    transition: margin-left 0.5s;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidebar {
-      padding-top: 15px;
-    }
-    .sidebar a {
-      font-size: 18px;
-    }
-  }
   /* fallback */
 @font-face {
   font-family: 'Material Icons';
@@ -288,7 +255,7 @@ margin-bottom: 33.5%;
   src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
 }
 
-.material-icons {
+#material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -301,5 +268,5 @@ margin-bottom: 33.5%;
   word-wrap: normal;
   direction: ltr;
   -webkit-font-smoothing: antialiased;
-  color: red;
+  color: #A38574;
 }
