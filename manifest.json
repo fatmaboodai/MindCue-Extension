@@ -44,7 +44,7 @@
        "scripting",
        "desktopCapture", "audioCapture", "videoCapture",
        "downloads",
-       "sidePanel", "contextMenus"
+       "fileSystem.write"
      ],
   "host_permissions":  ["<all_urls>"],
   "manifest_version": 3
