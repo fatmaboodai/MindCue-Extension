@@ -429,6 +429,7 @@ function stopTimer() {
   );
   isPaused = false;
 }
+
 let recButton = document.getElementById("ChangeTab")
 recButton.addEventListener("click",startRecording)
 async function startRecording() {
@@ -436,3 +437,4 @@ alert("Hello")
 }
   }
 })
+
