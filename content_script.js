@@ -204,6 +204,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
 
+
 chrome.runtime.onMessage.addListener((message,sender)=>{
 
   if (message.from === "settings" && message.query === "inject_side_bar"){
@@ -226,7 +227,7 @@ mainDiv.innerHTML=`
         <div id="Header">
           <h2>Break <p>in Session</p></h2>
         </div>
-    <div id="box">
+  <div id="box">
       <h2>
       Time Remaining
       </h2>
@@ -235,7 +236,9 @@ mainDiv.innerHTML=`
     </div>
   </div>
       <div >
-    <button id="ChangeTab" type="submit" >Pick a Tab</button>
+      <div id="pickTab">
+
+    </div>
       <div id="modifyTimer">
       <button class="ModifyButtons" id= "pauseButton" type="submit">Pause</button>
       <button class="ModifyButtons" id= "stopButton" type="submit">Stop</button>
@@ -430,11 +433,64 @@ function stopTimer() {
   isPaused = false;
 }
 
-let recButton = document.getElementById("ChangeTab")
-recButton.addEventListener("click",startRecording)
+let startrecordingdiv = document.getElementById("pickTab")
+startrecordingdiv.innerHTML= `
+
+<button id="toggleButton">Pick a Tab</button>
+
+`
+
+
+let stream;
+let recorder;
+let isRecording = false;
+
+const toggleButton = document.getElementById("toggleButton");
+
 async function startRecording() {
-alert("Hello")
+    if (!isRecording) {
+        // Start recording
+        stream = await navigator.mediaDevices.getDisplayMedia();
+        recorder = new MediaRecorder(stream);
+        toggleButton.textContent = "Stop Recording";
+
+        const chunks = [];
+
+        recorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+                chunks.push(event.data);
+            }
+        };
+
+        recorder.onstop = async () => {
+            // Combine all the recorded chunks into a single blob
+            const blob = new Blob(chunks, { type: "video/webm" });
+
+            // Prompt the user to choose where to save the recording file
+            const suggestedName = "screen-recording.webm";
+            const handle = await window.showSaveFilePicker({ suggestedName });
+            const writable = await handle.createWritable();
+
+            // Write the blob to the file
+            await writable.write(blob);
+            await writable.close();
+
+            // Reset the UI
+            toggleButton.textContent = "Start Recording";
+        };
+
+        recorder.start();
+        isRecording = true;
+    } else {
+        // Stop recording
+        recorder.stop();
+        stream.getTracks().forEach((track) => track.stop());
+        isRecording = false;
+    }
 }
+toggleButton.addEventListener("click", startRecording);
+
+
   }
 })
 

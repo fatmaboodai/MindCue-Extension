@@ -4,7 +4,7 @@
 
 
 .sidebar {
-  height: 100vh;
+  height: 80vh;
   width: 85px;
   position: fixed;
   z-index: 5500;
@@ -103,7 +103,6 @@ height: 180px;
 border-radius: 10px;
 border: 3px solid #FAE3E4;
 background: rgba(229, 239, 240, 0.00);
-
 }
 
 h2{
@@ -115,7 +114,7 @@ h2{
     line-height: normal;
     color: #638184;
     }
-    #ChangeTab {
+#pickTab button{
       width: 228px;
       border: 2px solid #DC989A;
       border-radius: 10px;
@@ -125,7 +124,7 @@ h2{
 
   }
 
-#ChangeTab:hover {
+#pickTab button:hover {
     background-color: #DC989A;
     border: 2px #F9F9F9 solid;
     text-decoration: none;
@@ -133,7 +132,7 @@ h2{
 
   }
 
-#ChangeTab:active {
+#pickTab button:active {
     background-color: #DC989A;
     color: white;
     border: 2px #F9F9F9 solid;
