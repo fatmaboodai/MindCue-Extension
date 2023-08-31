@@ -205,9 +205,9 @@ function enableMutationObserver() {
 
 
 
-// chrome.runtime.onMessage.addListener((message,sender)=>{
+chrome.runtime.onMessage.addListener((message,sender)=>{
 
-//   if (message.from === "settings" && message.query === "inject_side_bar"){
+  if (message.from === "settings" && message.query === "inject_side_bar"){
 
 // inject the timer page 
 let mainDiv =  document.createElement("div")
@@ -493,6 +493,6 @@ async function startRecording() {
 toggleButton.addEventListener("click", startRecording);
 
 
-//   }
-// })
+  }
+})
 
