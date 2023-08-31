@@ -205,9 +205,9 @@ function enableMutationObserver() {
 
 
 
-chrome.runtime.onMessage.addListener((message,sender)=>{
+// chrome.runtime.onMessage.addListener((message,sender)=>{
 
-  if (message.from === "settings" && message.query === "inject_side_bar"){
+//   if (message.from === "settings" && message.query === "inject_side_bar"){
 
 // inject the timer page 
 let mainDiv =  document.createElement("div")
@@ -271,7 +271,7 @@ icon.addEventListener("mouseout",toggleMySideBar)
 function toggleMySideBar() {
   if (mini) {
     console.log("opening sidebar");
-    document.getElementById("mySidebar").style.width = "400px";
+    document.getElementById("mySidebar").style.width = "380px";
     mini = false;
   } else {
     console.log("closing sidebar");
@@ -486,11 +486,13 @@ async function startRecording() {
         recorder.stop();
         stream.getTracks().forEach((track) => track.stop());
         isRecording = false;
+        toggleButton.textContent = "Start Recording";
+
     }
 }
 toggleButton.addEventListener("click", startRecording);
 
 
-  }
-})
+//   }
+// })
 
