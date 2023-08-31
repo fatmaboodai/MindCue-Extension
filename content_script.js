@@ -253,13 +253,13 @@ mainDiv.innerHTML=`
 // append to dom
 document.body.appendChild(mainDiv)
 // the cover image //
-const CoverDiv = document.getElementById("cover")
-let CoverImage = document.createElement("img")
-let CoverImageURL = chrome.runtime.getURL("./images/coverBackground.png")
+// const CoverDiv = document.getElementById("cover")
+// let CoverImage = document.createElement("img")
+// let CoverImageURL = chrome.runtime.getURL("./images/coverBackground.png")
 
-CoverImage.src = CoverImageURL
+// CoverImage.src = CoverImageURL
 
-CoverDiv.appendChild(CoverImage)
+// CoverDiv.appendChild(CoverImage)
 
 
 var mini = true;
