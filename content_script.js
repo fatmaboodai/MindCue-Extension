@@ -211,11 +211,11 @@ chrome.runtime.onMessage.addListener((message,sender)=>{
 
 // inject the timer page 
 let mainDiv =  document.createElement("div")
-mainDiv.setAttribute("id","container")
+mainDiv.setAttribute("id","MindCuecontainer")
 mainDiv.innerHTML=`
-<div id="mySidebar" class="sidebar">
+<div id="mySidebar" class="Msidebar">
 <div id = "backArrow">
-    <a href="#"><span id="material-icons">
+    <a href="#"><span id="MindCueMaterial-icons">
       arrow_circle_right
     </span></a>
 </div>
@@ -224,18 +224,18 @@ mainDiv.innerHTML=`
 <div id="cover"> 
 </div>
   <div id="mainform">
-        <div id="Header">
-          <h2>Break <p>in Session</p></h2>
+        <div id="BrowsingHeader">
+          <h2>Browsing <p>in Session</p></h2>
         </div>
-  <div id="box">
-      <h2>
+  <div id="Timerbox">
+      <h2 id="Timer">
       Time Remaining
       </h2>
       <div id="app">
       </div>
     </div>
   </div>
-      <div >
+      <div>
       <div id="pickTab">
 
     </div>
@@ -252,6 +252,7 @@ mainDiv.innerHTML=`
 `
 // append to dom
 document.body.appendChild(mainDiv)
+
 // the cover image //
 // const CoverDiv = document.getElementById("cover")
 // let CoverImage = document.createElement("img")
@@ -280,6 +281,20 @@ function toggleMySideBar() {
   }
   
 }
+let startrecordingdiv = document.getElementById("pickTab")
+startrecordingdiv.innerHTML= `
+
+<button id="toggleButton">Pick a Tab</button>
+
+`
+
+
+let stream;
+let recorder;
+let isRecording = false;
+
+const toggleButton = document.getElementById("toggleButton");
+
 // timerrr
 
 const FULL_DASH_ARRAY = 283;
@@ -333,7 +348,7 @@ document.getElementById("app").innerHTML = `
 
 
 // TIMER LOGIC
-startTimer();
+//  startTimer()
 
 function onTimesUp() {
   clearInterval(timerInterval);
@@ -432,66 +447,55 @@ function stopTimer() {
   );
   isPaused = false;
 }
+async function startRecordingAndTimer() {
+  if (!isRecording) {
+      // Start recording
+      stream = await navigator.mediaDevices.getDisplayMedia();
+      recorder = new MediaRecorder(stream);
+      toggleButton.textContent = "Stop Recording";
 
-let startrecordingdiv = document.getElementById("pickTab")
-startrecordingdiv.innerHTML= `
+      const chunks = [];
 
-<button id="toggleButton">Pick a Tab</button>
+      recorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+              chunks.push(event.data);
+          }
+      };
 
-`
+      recorder.onstop = async () => {
+          // Combine all the recorded chunks into a single blob
+          const blob = new Blob(chunks, { type: "video/webm" });
 
+          // Prompt the user to choose where to save the recording file
+          const suggestedName = "screen-recording.webm";
+          const handle = await window.showSaveFilePicker({ suggestedName });
+          const writable = await handle.createWritable();
 
-let stream;
-let recorder;
-let isRecording = false;
+          // Write the blob to the file
+          await writable.write(blob);
+          await writable.close();
 
-const toggleButton = document.getElementById("toggleButton");
+          // Reset the UI
+          toggleButton.textContent = "Start Recording";
+      };
 
-async function startRecording() {
-    if (!isRecording) {
-        // Start recording
-        stream = await navigator.mediaDevices.getDisplayMedia();
-        recorder = new MediaRecorder(stream);
-        toggleButton.textContent = "Stop Recording";
+      recorder.start();
+      isRecording = true;
 
-        const chunks = [];
+      // Start the timer
+      startTimer();
+  } else {
+      // Stop recording
+      recorder.stop();
+      stream.getTracks().forEach((track) => track.stop());
+      isRecording = false;
+      toggleButton.textContent = "Pick a Tab";
 
-        recorder.ondataavailable = (event) => {
-            if (event.data.size > 0) {
-                chunks.push(event.data);
-            }
-        };
-
-        recorder.onstop = async () => {
-            // Combine all the recorded chunks into a single blob
-            const blob = new Blob(chunks, { type: "video/webm" });
-
-            // Prompt the user to choose where to save the recording file
-            const suggestedName = "screen-recording.webm";
-            const handle = await window.showSaveFilePicker({ suggestedName });
-            const writable = await handle.createWritable();
-
-            // Write the blob to the file
-            await writable.write(blob);
-            await writable.close();
-
-            // Reset the UI
-            toggleButton.textContent = "Start Recording";
-        };
-
-        recorder.start();
-        isRecording = true;
-    } else {
-        // Stop recording
-        recorder.stop();
-        stream.getTracks().forEach((track) => track.stop());
-        isRecording = false;
-        toggleButton.textContent = "Start Recording";
-
-    }
+      // Stop the timer
+      stopTimer();
+  }
 }
-toggleButton.addEventListener("click", startRecording);
-
+toggleButton.addEventListener("click", startRecordingAndTimer);
 
   }
 })

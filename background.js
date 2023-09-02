@@ -2,7 +2,7 @@ chrome.tabs.onActivated.addListener((tab) => {
     console.log(tab);
 
     chrome.tabs.get(tab.tabId, (currentTabData) => {
-      if (currentTabData.url === "http://www.google.com") {
+      if (currentTabData.url !== "chrome://newtab") {
         chrome.scripting.executeScript({
           target: { tabId: currentTabData.id },
           files: ["content_script.js","content_script.css"]
