@@ -492,6 +492,7 @@
 
 //   }
 // })
+
 // Content Script for Chrome Extension
 window.onload = initContentScript;
 
