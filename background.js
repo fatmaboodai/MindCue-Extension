@@ -22,12 +22,12 @@ chrome.tabs.onActivated.addListener((tab) => {
   });
   
 
-// reciving a message from the popup 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message);
-  console.log(sender);
+// // reciving a message from the popup 
+// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+//   console.log(message);
+//   console.log(sender);
 
-  // Send a response asynchronously
-  sendResponse("hello from the other sideeeee i'm backgrounddd");
-});
+//   // Send a response asynchronously
+//   sendResponse("hello from the other sideeeee i'm backgrounddd");
+// });
 

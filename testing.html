@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox Check</title>
+</head>
+<body>
+    <label for="myCheckbox">Check this box:</label>
+    <input type="checkbox" id="myCheckbox">
+    <button onclick="checkCheckbox()">Check</button>
+
+    <script>
+        function checkCheckbox() {
+            // Get the checkbox element by its id
+            var checkbox = document.getElementById("myCheckbox");
+            // Check if the checkbox is checked
+            if (checkbox.checked) {
+                alert("Checkbox is checked!");
+            } else {
+                alert("Checkbox is not checked.");
+            }
+        }
+    </script>
+</body>
+</html>
