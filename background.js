@@ -30,4 +30,12 @@ chrome.tabs.onActivated.addListener((tab) => {
 //   // Send a response asynchronously
 //   sendResponse("hello from the other sideeeee i'm backgrounddd");
 // });
+// Background Script
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.reloadTab) {
+    // Reload the current tab when requested
+    chrome.tabs.reload();
+  }
+});
 

@@ -27,34 +27,35 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-const checkbox = document.getElementById("setting1");
-                // Add an event listener to detect changes in the checkbox state
-                checkbox.addEventListener("click", function() {
-                    // Get the current value of the checkbox
-                    const isChecked = checkbox.checked;
-                    // Save the checkbox value to Chrome storage
-                    chrome.storage.sync.set({ "isChecked": isChecked }, function() {
-                      if (chrome.runtime.lastError) {
-                        console.error("Error saving checkbox value: " + chrome.runtime.lastError);
-                      } else {
-                        console.log("Checkbox value saved to Chrome storage.");
-                      }
-                    })
-                  })
+document.addEventListener("DOMContentLoaded", () => {
+  const setting1Checkbox = document.getElementById('setting1');
 
-document.addEventListener("DOMContentLoaded",()=>{
-const checkbox = document.getElementById("setting1");
-// Get a reference to the checkbox element
-    chrome.tabs.query({active:true , currentWindow:true},(tabs)=>{
-        const tab = tabs[0]
-        checkbox.addEventListener("click",async ()=>{
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                {from :"settings",query:"Check_Blocking_enabled"},
-                
-            )
-  })
-  })
-})
+  // Load the checkbox state from Chrome storage and set the initial state
+  chrome.storage.sync.get({ setting1: false }, (data) => {
+    setting1Checkbox.checked = data.setting1;
+  });
 
- 
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const tab = tabs[0];
+    if (tab.url === undefined || tab.url.startsWith('chrome')) {
+      setting1Checkbox.disabled = true;
+      setting1Checkbox.innerHTML = "MindCue Can't Access Chrome page";
+    } else if (tab.url.startsWith('file')) {
+      setting1Checkbox.disabled = true;
+      setting1Checkbox.innerHTML = "MindCue Can't Access local files";
+    } else {
+      setting1Checkbox.addEventListener("click", () => {
+        // Save the checkbox state in Chrome storage
+        chrome.storage.sync.set({ setting1: setting1Checkbox.checked });
+        
+        // Send a message to the content script if needed
+        chrome.tabs.sendMessage(
+          tabs[0].id,
+          { from: "settings", query: "text_blocking" }
+        );
+      });
+    }
+  });
+});
+
+
