@@ -183,8 +183,9 @@ font-weight: 200;
 .ModifyButtons{
 border-radius: 10px;
 border: 2px #DC989A solid;
-width: 110px;
-padding: 12px;
+width: 228px;
+
+padding: 10px;
 background: linear-gradient(7deg, rgba(243, 232, 226, 0.00) 0%, rgba(250, 227, 228, 0.00) 100%);
 color: #DC989A;
 font-family: 'Poppins';

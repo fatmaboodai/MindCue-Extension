@@ -12,11 +12,19 @@ document.addEventListener("DOMContentLoaded",()=>{
             StartButton.innerHTML="MindCue Can't Access local files"}
         else{
             StartButton.addEventListener("click",async ()=>{
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                {from :"settings",query:"inject_side_bar"},
+            // chrome.tabs.sendMessage(
+            //     tabs[0].id,
+            //     {from :"settings",query:"inject_side_bar"},
 
-            )
+            // )
+            chrome.tabs.query({}, (tabs) => {
+              for (const tab of tabs) {
+                chrome.tabs.sendMessage(
+                  tab.id,
+                  { from: "settings", query: "inject_side_bar" }
+                );
+              }
+            });
           // close the window of the settings page 
             window.close()
             })
@@ -24,7 +32,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
 })
 })
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,13 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
         chrome.storage.sync.set({ setting1: setting1Checkbox.checked });
         
         // Send a message to the content script if needed
-        chrome.tabs.sendMessage(
-          tabs[0].id,
-          { from: "settings", query: "text_blocking" }
-        );
+        // chrome.tabs.sendMessage(
+        //   tabs[0].id,
+        //   { from: "settings", query: "text_blocking" }
+        // );
+        chrome.tabs.query({}, (tabs) => {
+          for (const tab of tabs) {
+            chrome.tabs.sendMessage(
+              tab.id,
+              { from: "settings", query: "text_blocking" }
+            );
+          }
+        });
       });
     }
   });
 });
-
-
