@@ -5,7 +5,7 @@ chrome.tabs.onActivated.addListener((tab) => {
       if (currentTabData.url !== "chrome://newtab") {
         chrome.scripting.executeScript({
           target: { tabId: currentTabData.id },
-          files: ["content_script.js","content_script.css"]
+          files: ["content.js","content_script.css","settings.js"]
         });
         setTimeout(()=>{
           chrome.tabs.sendMessage(

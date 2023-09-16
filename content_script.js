@@ -285,13 +285,12 @@ startrecordingdiv.innerHTML= `
 <button id="toggleButton">Pick a Tab</button>
 
 `
-
-
-let stream;
-let recorder;
-let isRecording = false;
-
 const toggleButton = document.getElementById("toggleButton");
+toggleButton.addEventListener("click", () => {
+  startRecordingAndTimer();
+});
+
+
 
 // timerrr
 
@@ -445,60 +444,140 @@ function stopTimer() {
   );
   isPaused = false;
 }
+
+let stream;
+let recorder;
+let isRecording = false;
+let chunks = [];
+
+
 async function startRecordingAndTimer() {
-  if (!isRecording) {
-      // Start recording
-      stream = await navigator.mediaDevices.getDisplayMedia();
-      recorder = new MediaRecorder(stream);
-      toggleButton.textContent = "Stop Recording";
+  console.log("test the recording")
+  if (isRecording) {
+      try {
+          // Start recording
+          stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+          recorder = new MediaRecorder(stream);
+          toggleButton.textContent = "Stop Recording";
 
-      const chunks = [];
+          recorder.ondataavailable = (event) => {
+              if (event.data.size > 0) {
+                  chunks.push(event.data);
+              }
+          };
 
-      recorder.ondataavailable = (event) => {
-          if (event.data.size > 0) {
-              chunks.push(event.data);
-          }
-      };
+          recorder.onstop = () => {
+              // Combine all the recorded chunks into a single blob
+              const blob = new Blob(chunks, { type: "video/webm" });
 
-      recorder.onstop = async () => {
-          // Combine all the recorded chunks into a single blob
-          const blob = new Blob(chunks, { type: "video/webm" });
+              // Create a video element to preview the recording
+              const videoElement = document.createElement('video');
+              videoElement.controls = true;
+              document.body.appendChild(videoElement);
+              videoElement.src = URL.createObjectURL(blob);
 
-          // Prompt the user to choose where to save the recording file
-          const suggestedName = "screen-recording.webm";
-          const handle = await window.showSaveFilePicker({ suggestedName });
-          const writable = await handle.createWritable();
+              // Reset the UI
+              toggleButton.textContent = "Start Recording";
+          };
 
-          // Write the blob to the file
-          await writable.write(blob);
-          await writable.close();
+          recorder.start();
+          isRecording = true;
 
-          // Reset the UI
-          toggleButton.textContent = "Start Recording";
-      };
-
-      recorder.start();
-      isRecording = true;
-
-      // Start the timer
-      startTimer();
+          // Start the timer
+          startTimer();
+      } catch (error) {
+          console.error("Error starting recording:", error);
+      }
   } else {
       // Stop recording
       recorder.stop();
       stream.getTracks().forEach((track) => track.stop());
       isRecording = false;
-      toggleButton.textContent = "Pick a Tab";
+      toggleButton.textContent = "Start Recording";
 
       // Stop the timer
       stopTimer();
   }
+  
 }
-toggleButton.addEventListener("click", startRecordingAndTimer);
 
   }
 })
 
 
+// Content Script
+
+// Function to start screen recording
+let stream;
+let recorder;
+const chunks = [];
+let isRecording = false;
+
+async function startRecording() {
+  try {
+    stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+    recorder = new MediaRecorder(stream);
+
+    recorder.ondataavailable = (event) => {
+      if (event.data.size > 0) {
+        chunks.push(event.data);
+      }
+    };
+
+    recorder.onstop = () => {
+      // Combine all the recorded chunks into a single blob
+      const blob = new Blob(chunks, { type: "video/webm" });
+
+      // Create a video element to preview the recording
+      const videoElement = document.createElement('video');
+      videoElement.controls = true;
+      document.body.appendChild(videoElement);
+      videoElement.src = URL.createObjectURL(blob);
+
+      console.log("Recording stopped.");
+    };
+
+    recorder.start();
+    isRecording = true;
+
+    console.log("Recording started.");
+  } catch (error) {
+    console.error("Error starting recording:", error);
+  }
+}
+
+// Function to stop screen recording
+function stopRecording() {
+  if (isRecording) {
+    recorder.stop();
+    stream.getTracks().forEach((track) => track.stop());
+    isRecording = false;
+    console.log("Recording stopped.");
+    
+    // Request permission to save the recorded file
+    const blob = new Blob(chunks, { type: "video/webm" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = "screen-recording.webm";
+    anchor.click();
+  }
+}
+
+// Add "Start Recording" and "Stop Recording" buttons
+const startRecordingButton = document.createElement('button');
+startRecordingButton.textContent = "Start Recording";
+startRecordingButton.addEventListener("click", startRecording);
+
+const stopRecordingButton = document.createElement('button');
+stopRecordingButton.textContent = "Stop Recording";
+stopRecordingButton.addEventListener("click", stopRecording);
+
+const buttonContainer = document.createElement('div');
+buttonContainer.appendChild(startRecordingButton);
+buttonContainer.appendChild(stopRecordingButton);
+
+document.body.appendChild(buttonContainer);
 
 
 // let cachedTerms = [];
