@@ -1,9 +1,11 @@
 
 window.addEventListener("beforeunload", () => {
-    chrome.storage.sync.set({ setting1: false }, () => {
+    chrome.storage.sync.set({ setting1: true }, () => {
       console.log("Checkbox state reset to false on page reload");
     });
   });
+
+
   chrome.runtime.onMessage.addListener((message,sender)=>{
     if (message.from === "settings" && message.query === "inject_side_bar"){
   // inject the timer page 
@@ -37,7 +39,7 @@ window.addEventListener("beforeunload", () => {
   
       </div>
         <div id="modifyTimer">
-        <button class="ModifyButtons" id= "pauseButton" type="submit">Pause</button>
+ 
          </div>
   </div>
   
@@ -83,13 +85,26 @@ window.addEventListener("beforeunload", () => {
   <button id="toggleButton">Pick a Tab</button>
   
   `
+
+  let Pausediv = document.getElementById("modifyTimer")
+  Pausediv.innerHTML= `
+  <button class="ModifyButtons" id="pauseButton" type="submit">Pause</button>
+  
+  `
+  const pauseButton = document.getElementById("pauseButton");
+
+  // Add event listeners to the buttons
+  pauseButton.addEventListener("click",pauseTimer);
+
+
+  
   let isRecording = false; // Add this variable to track recording state
   const toggleButton = document.getElementById("toggleButton");
   toggleButton.addEventListener("click", () => {
     if (isRecording) {
-      stopRecording();
+      toggleRecording();
     } else {
-      startRecording();
+      toggleRecording();
     }
   });
   
@@ -212,26 +227,22 @@ window.addEventListener("beforeunload", () => {
       .getElementById("base-timer-path-remaining")
       .setAttribute("stroke-dasharray", circleDasharray);
   }
-  const pauseButton = document.getElementById("pauseButton");
-  const stopButton = document.getElementById("stopButton");
-  
-  // Add event listeners to the buttons
-  pauseButton.addEventListener("click", pauseTimer);
-  stopButton.addEventListener("click", stopTimer);
-  
+
+
   let isPaused = false;
-  
   function pauseTimer() {
-    if (isPaused) {
-      // Resume timer
-      startTimer();
-      isPaused = false;
-      pauseButton.textContent = "Pause";
-    } else {
-      // Pause timer
-      clearInterval(timerInterval);
-      isPaused = true;
-      pauseButton.textContent = "Resume";
+    if (isRecording) {
+      if (isPaused) {
+        // Resume timer
+        startTimer();
+        isPaused = false;
+        pauseButton.textContent = "Pause";
+      } else {
+        // Pause timer
+        clearInterval(timerInterval);
+        isPaused = true;
+        pauseButton.textContent = "Resume";
+      }
     }
   }
   
@@ -249,84 +260,80 @@ window.addEventListener("beforeunload", () => {
   
   // Content Script
   
-  // Function to start screen recording
-  let stream;
-  let recorder;
-  const chunks = [];
+// Function to start or stop screen recording
+async function toggleRecording() {
+  if (!isRecording) {
+    try {
+      // Start the timer
+      startTimer();
 
-// Function to start screen recording
-async function startRecording() {
-  try {
-    // Start the timer
-    startTimer();
+      stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
+      recorder = new MediaRecorder(stream);
 
-    stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
-    recorder = new MediaRecorder(stream);
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          chunks.push(event.data);
+        }
+      };
 
-    recorder.ondataavailable = (event) => {
-      if (event.data.size > 0) {
-        chunks.push(event.data);
-      }
-    };
+      recorder.onstop = () => {
+        // Combine all the recorded chunks into a single blob
+        const blob = new Blob(chunks, { type: "video/webm" });
+      
+        // Create a video element to preview the recording
+        const videoElement = document.createElement('video');
+        videoElement.controls = true;
+        document.body.appendChild(videoElement);
+        videoElement.src = URL.createObjectURL(blob);
+      
+        // Create a download link for the video
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = "recorded-video.webm";
+        downloadLink.textContent = "Download Recorded Video";
+      
+        // Add the download link to the document
+        document.body.appendChild(downloadLink);
+      
+        // Programmatically trigger the click event on the download link
+        downloadLink.click();
+      
+        // Remove the download link and video element from the document
+        downloadLink.remove();
+        videoElement.remove();
+      
+        // Reset the UI
+        toggleButton.textContent = "Start Recording";
+      
+        // Clear the chunks for the next recording
+        chunks.length = 0;
+      };
+      
+  
+      recorder.start();
+      isRecording = true;
 
-    recorder.onstop = () => {
-      // Combine all the recorded chunks into a single blob
-      const blob = new Blob(chunks, { type: "video/webm" });
-
-      // Create a video element to preview the recording
-      const videoElement = document.createElement('video');
-      videoElement.controls = true;
-      document.body.appendChild(videoElement);
-      videoElement.src = URL.createObjectURL(blob);
-
-      console.log("Recording stopped.");
-      toggleButton.textContent = "Pick a Tab"; // Update button text
-      isRecording = false; // Update recording state
-    };
-
-    recorder.start();
-    isRecording = true;
-
-    console.log("Recording started.");
-    toggleButton.textContent = "Stop Recording"; // Update button text
-  } catch (error) {
-    console.error("Error starting recording:", error);
+      console.log("Recording started.");
+      toggleButton.textContent = "Stop Recording"; // Update button text
+    } catch (error) {
+      console.error("Error starting recording:", error);
+    }
+  } else {
+    stopRecording();
   }
 }
-// ...
-
-// Function to stop screen recording
 function stopRecording() {
-    if (isRecording) {
-      recorder.stop();
-      stream.getTracks().forEach((track) => track.stop());
-      isRecording = false;
-      console.log("Recording stopped.");
-      toggleButton.textContent = "Pick a Tab"; // Update button text
-      
-      // Stop and reset the timer
-      stopTimer();
-      
-      // Save the video
-      saveVideo();
-    }
-  }
-  
-  // Function to save the video
-  function saveVideo() {
-    // Combine all the recorded chunks into a single blob
-    const blob = new Blob(chunks, { type: "video/webm" });
-  
-    // Create a video element to preview the recording
-    const videoElement = document.createElement('video');
-    videoElement.controls = true;
-    document.body.appendChild(videoElement);
-    videoElement.src = URL.createObjectURL(blob);
-  
-    console.log("Video saved.");
-  }
-  
+  if (isRecording) {
+    recorder.stop();
+    stream.getTracks().forEach((track) => track.stop());
+    isRecording = false;
+    console.log("Recording stopped.");
+    toggleButton.textContent = "Start Recording"; // Update button text
 
+    // Stop and reset the timer
+    stopTimer();
+  }
+}
     }
   })
   
