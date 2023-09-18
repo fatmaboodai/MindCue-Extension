@@ -494,3 +494,18 @@ function stopRecording() {
     // disconnecting likely won't work since we need to continuously watch
     // observer.disconnect();
   }
+
+
+// content.js
+
+// Listen for messages from the popup script
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.timer) {
+      const { hours, minutes, seconds } = message.timer;
+      
+      // Log the received timer values to the console
+      console.log('Received timer values in content.js:', { hours, minutes, seconds });
+      
+      // You can use these values in your content script logic
+  }
+});

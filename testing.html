@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Checkbox Check</title>
+    <style>
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .countdown input {
+            width: 50px;
+            font-size: 24px;
+            text-align: center;
+            margin: 0 10px;
+            outline: none; /* Remove the border on focus */
+        }
+    </style>
 </head>
 <body>
-    <label for="myCheckbox">Check this box:</label>
-    <input type="checkbox" id="myCheckbox">
-    <button onclick="checkCheckbox()">Check</button>
+    <div class="countdown">
+        <input id="hours" type="number" min="0" value="00">
+        <span>:</span>
+        <input id="minutes" type="number" min="0" max="59" value="00">
+        <span>:</span>
+        <input id="seconds" type="number" min="0" max="59" value="00">
+        <button id="setButton">Set</button>
+    </div>
 
     <script>
-        function checkCheckbox() {
-            // Get the checkbox element by its id
-            var checkbox = document.getElementById("myCheckbox");
-            // Check if the checkbox is checked
-            if (checkbox.checked) {
-                alert("Checkbox is checked!");
-            } else {
-                alert("Checkbox is not checked.");
-            }
+        let hoursInput = document.getElementById('hours');
+        let minutesInput = document.getElementById('minutes');
+        let secondsInput = document.getElementById('seconds');
+        let setButton = document.getElementById('setButton');
+        let timer;
+
+        setButton.addEventListener('click', function () {
+            let hours = parseInt(hoursInput.value);
+            let minutes = parseInt(minutesInput.value);
+            let seconds = parseInt(secondsInput.value);
+
+            updateTime(hours, minutes, seconds);
+            showAlert(hours, minutes, seconds);
+        });
+
+        function updateTime(hours, minutes, seconds) {
+            hoursInput.value = formatDoubleDigit(hours);
+            minutesInput.value = formatDoubleDigit(minutes);
+            secondsInput.value = formatDoubleDigit(seconds);
         }
+
+        function showAlert(hours, minutes, seconds) {
+            alert(`Time saved: ${formatDoubleDigit(hours)} hours ${formatDoubleDigit(minutes)} minutes ${formatDoubleDigit(seconds)} seconds`);
+        }
+
+        function formatDoubleDigit(num) {
+            return num < 10 ? `0${num}` : num.toString();
+        }
+
+        // Format input values when the page loads
+        window.addEventListener('load', function () {
+            updateTime(parseInt(hoursInput.value), parseInt(minutesInput.value), parseInt(secondsInput.value));
+        });
     </script>
 </body>
 </html>
