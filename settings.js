@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
       setting1Checkbox.innerHTML = "MindCue Can't Access local files";
     } else {
       setting1Checkbox.addEventListener("click", () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+          const activeTab = tabs[0];
+          if (activeTab) {
+            chrome.tabs.reload(activeTab.id);
+          }
+        });
         // Save the checkbox state in Chrome storage
         chrome.storage.sync.set({ setting1: setting1Checkbox.checked });
         

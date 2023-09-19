@@ -21,11 +21,12 @@ chrome.tabs.onActivated.addListener((tab) => {
     });
   });
   
+// background.js or any other script where you want to trigger the refresh
 
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.reloadTab) {
-    // Reload the current tab when requested
-    chrome.tabs.reload();
+// Send a message to the content script to refresh the page
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+  const activeTab = tabs[0];
+  if (activeTab) {
+    chrome.tabs.sendMessage(activeTab.id, { refreshPage: true });
   }
 });
