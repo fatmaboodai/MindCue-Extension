@@ -10,14 +10,15 @@ body{
     background-color: #f9f9f9;
 }
 .container-class{
-  width: 484px;
+    width: 584px !important;
+    height: 440px !important;
     background-color: #CCE1E3 !important ;
   border-radius: 15px !important;
   font-family: 'Poppins', sans-serif !important;
   font-family: 'Roboto', sans-serif !important;
   }
   .pop-up-class{
-    width: 484px;
+    width: 584px;
     /* height: 440px; */
       left: 18px !important;
       top: 19px !important;
@@ -25,9 +26,8 @@ body{
       border-radius: 20px !important;
       font-family: 'Poppins', sans-serif !important;
     font-family: 'Roboto', sans-serif !important;
-    background: linear-gradient(#f5f5f5, #cbd6d73f )!important ;
-    /* background: rgba(249, 249, 249, 0.24); */
-
+    background: linear-gradient(#f5f5f5, #cbd6d78b )!important ;
+    background: rgba(249, 249, 249, 0.50);
     /* border-top: 5px solid #63818471 !important;
     border-right: 5px solid #63818471 !important;
     border-bottom: 5px solid #63818471 !important;
@@ -79,8 +79,9 @@ body{
     border: 2px solid #638184 !important;
     border-radius: 10px !important;
     margin-top: 5px;
-    background: linear-gradient(#f5f5f5, #cbd6d7 )!important ;
-
+    background-color: rgba(249, 249, 249, 0.5) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
   }
   .skip-button-text{
   width: 80px !important ;
@@ -91,10 +92,11 @@ body{
   font-family: 'Roboto', sans-serif !important;
   font-style: normal !important;
   font-weight: 600 !important;
-  font-size: 15px !important;
+  font-size: 18px !important;
   line-height: 25px !important;
   color: #638184  !important;
-  /* background-color: rgba(249, 249, 249, 0.5) !important; */
+  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
   }
   
   
@@ -113,8 +115,10 @@ body{
     border: 2px solid #638184 !important;
     border-radius: 10px !important;
     margin-top: 5px;
-    background: linear-gradient(#f5f5f586, #cbd6d73f )!important ;
+    background-color: rgba(249, 249, 249, 0.5) !important;
 outline: none !important;
+font-family: 'Poppins', sans-serif !important;
+font-family: 'Roboto', sans-serif !important;
 }
 .swal2-deny{
     box-sizing: border-box !important;
@@ -125,7 +129,7 @@ outline: none !important;
     border: 2px solid #638184 !important;
     border-radius: 10px !important;
     margin-top: 5px;
-    background: linear-gradient(#f5f5f5, #cbd6d73f )!important ;
+    background-color: rgba(249, 249, 249, 0.5) !important;
 outline: none !important;
 }
 
@@ -138,106 +142,8 @@ outline: none !important;
     border: 2px solid #638184 !important;
     border-radius: 10px !important;
     margin-top: 5px;
-    background: linear-gradient(#f5f5f5, #cbd6d73f )!important ;
+    background-color: rgba(249, 249, 249, 0.5) !important;
 outline: none !important;
-}
-
-/* smaller  */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,100&family=Roboto&display=swap');
-
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-body {
-    margin: 0;
-    margin-top: 5px;
-    margin-right: 0;
-    background-color: #f9f9f9;
-}
-
-.container-class {
-    width: 384px; /* Reduced the width */
-    background-color: #CCE1E3 !important;
-    border-radius: 15px !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-family: 'Roboto', sans-serif !important;
-}
-
-.pop-up-class {
-    width: 384px; /* Reduced the width */
-    height: 360px; /* Reduced the height */
-    left: 18px !important;
-    top: 19px !important;
-    background-color: #F5F5F5 !important;
-    border-radius: 15px !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-family: 'Roboto', sans-serif !important;
-    background: linear-gradient(#f5f5f5, #cbd6d73f ) !important;
-}
-
-.title-class {
-    width: 324px; /* Reduced the width */
-    height: 90px; /* Reduced the height */
-    left: auto;
-    font-family: 'Poppins', sans-serif !important;
-    font-family: 'Roboto', sans-serif !important;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px; /* Reduced the font size */
-    line-height: 42px; /* Reduced the line height */
-    text-align: center;
-    color: #DC989A;
-}
-
-.title-class2 {
-    /* Wait a minute!The following content may contain material you are not comfortable with */
-    width: 324px; /* Reduced the width */
-    height: 90px; /* Reduced the height */
-    left: 61px;
-    top: 51px;
-    font-family: 'Poppins', sans-serif !important;
-    font-family: 'Roboto', sans-serif !important;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 20px; /* Reduced the font size */
-    line-height: 28px; /* Reduced the line height */
-    text-align: center;
-    color: #DC989A;
-}
-
-/* Adjust button sizes and text size */
-.Skip-Button, .swal2-confirm, .swal2-deny, .swal2-cancel {
-    box-sizing: border-box !important;
-    width: 200px; /* Reduced the width */
-    height: 44px; /* Reduced the height */
-    left: 92px; /* Adjusted left position */
-    top: 205px !important;
-    border: 2px solid #638184 !important;
-    border-radius: 10px !important;
-    margin-top: 5px;
-    background: linear-gradient(#f5f5f5, #cbd6d73f ) !important;
-    outline: none !important;
-    font-size: 14px; /* Reduced the font size */
-}
-
-.skip-button-text {
-    width: 80px !important;
-    height: 26px !important;
-    left: 100px !important;
-    top: 219px !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-family: 'Roboto', sans-serif !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 12px; /* Reduced the font size */
-    line-height: 25px !important;
-    color: #638184 !important;
-    /* background-color: rgba(249, 249, 249, 0.5) !important; */
-}
-
-.swal2-actions {
-    display: flex;
-    flex-direction: column;
+font-family: 'Poppins', sans-serif !important;
+font-family: 'Roboto', sans-serif !important;
 }
