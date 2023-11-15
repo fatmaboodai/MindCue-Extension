@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             // });
           // close the window of the settings page 
             window.close()
-            })
+            })}
     
-            }
+            // }
 })
 })
 
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             chrome.tabs.reload(activeTab.id);
           }
         });
+
         // Save the checkbox state in Chrome storage
         chrome.storage.sync.set({ setting1: setting1Checkbox.checked });
         
