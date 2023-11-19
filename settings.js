@@ -4,6 +4,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
     const StartButton = document.getElementById("startRecording")
     chrome.tabs.query({active:true , currentWindow:true},(tabs)=>{
+
         const tab = tabs[0]
         if(tab.url === undefined || tab.url.indexOf('chrome') == 0){
             StartButton.innerHTML="MindCue Can't Access Chrome page"
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                 tabs[0].id,
                 {from :"settings",query:"inject_side_bar"},
             )
+            
             // chrome.tabs.query({}, (tabs) => {
             //   for (const tab of tabs) {
             //     chrome.tabs.sendMessage(

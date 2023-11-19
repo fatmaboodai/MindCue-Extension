@@ -14,7 +14,7 @@
         }
     },
     "web_accessible_resources": [{ 
-      "resources": ["images/coverBackground.png"],
+      "resources": ["images/coverBackground.png","./socket.io.min.js"],
       "matches": ["<all_urls>"]
     }],
     "icons": {
@@ -30,7 +30,7 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content.js","settings.js"],
+          "js": ["content.js","settings.js","content2.js"],
           "css":["content_script.css"],
           "run_at": "document_end"
         }
@@ -44,9 +44,9 @@
        "scripting",
        "activeTab", "desktopCapture", "mediaCapture", "audioCapture", "videoCapture",
        "downloads",
-       "fileSystem.write"
+       "fileSystem.write",
+       "http://127.0.0.1:9000/"
      ],
   "host_permissions":  ["<all_urls>"],
   "manifest_version": 3
-  
 }

@@ -5,7 +5,7 @@ chrome.tabs.onActivated.addListener((tab) => {
       if (currentTabData.url !== "chrome://newtab") {
         chrome.scripting.executeScript({
           target: { tabId: currentTabData.id },
-          files: ["content.js","content_script.css","settings.js"]
+          files: ["content.js","content_script.css","settings.js","socket.io.min"]
         });
         setTimeout(()=>{
           chrome.tabs.sendMessage(
@@ -29,4 +29,15 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   if (activeTab) {
     chrome.tabs.sendMessage(activeTab.id, { refreshPage: true });
   }
+});
+
+let socket
+
+socket = io.connect('http://127.0.0.1:9000');
+socket.on('connect', function() {
+  console.log('Connected to WebSocket server.');
+});
+
+socket.on('disconnect', function(reason) {
+  console.log('Disconnected:', reason);
 });
