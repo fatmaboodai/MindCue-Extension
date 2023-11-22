@@ -1,11 +1,10 @@
 chrome.tabs.onActivated.addListener((tab) => {
     console.log(tab);
-
     chrome.tabs.get(tab.tabId, (currentTabData) => {
       if (currentTabData.url !== "chrome://newtab") {
         chrome.scripting.executeScript({
           target: { tabId: currentTabData.id },
-          files: ["content.js","content_script.css","settings.js","socket.io.min"]
+          files: ["content.js","content2.js","content_script.css","settings.js"]
         });
         setTimeout(()=>{
           chrome.tabs.sendMessage(
@@ -31,13 +30,3 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   }
 });
 
-let socket
-
-socket = io.connect('http://127.0.0.1:9000');
-socket.on('connect', function() {
-  console.log('Connected to WebSocket server.');
-});
-
-socket.on('disconnect', function(reason) {
-  console.log('Disconnected:', reason);
-});

@@ -13,10 +13,6 @@
           "128": "images/Brainstorm.png"
         }
     },
-    "web_accessible_resources": [{ 
-      "resources": ["images/coverBackground.png","./socket.io.min.js"],
-      "matches": ["<all_urls>"]
-    }],
     "icons": {
       "16": "images/Brainstorm.png",
       "32": "images/Brainstorm.png",
@@ -30,7 +26,7 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content.js","settings.js","content2.js"],
+          "js": ["content.js","settings.js","content2.js",  "socket.io.min.js"],
           "css":["content_script.css"],
           "run_at": "document_end"
         }
@@ -45,7 +41,7 @@
        "activeTab", "desktopCapture", "mediaCapture", "audioCapture", "videoCapture",
        "downloads",
        "fileSystem.write",
-       "http://127.0.0.1:9000/"
+       "socket.io.min.js"
      ],
   "host_permissions":  ["<all_urls>"],
   "manifest_version": 3
